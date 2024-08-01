@@ -12,6 +12,13 @@ import Bell from "../assets/icons/Bell.png";
 import Search from "../assets/icons/Search.png";
 import Message from "../assets/icons/Message.png";
 import PhoneCall from "../assets/icons/PhoneCall.png";
+import ArrowLeft from "../assets/icons/ArrowLeft.png";
+import Envelope from "../assets/icons/Envelope.png";
+import Location from "../assets/icons/Location.png";
+import LinkBroken from "../assets/icons/LinkBroken.png";
+import CheckCircle from "../assets/icons/CheckCircle.png";
+import CheckRaw from "../assets/icons/CheckRaw.png";
+import CheckRaw2 from "../assets/icons/CheckRaw2.png";
 
 export default {
   HistoryOutline,
@@ -27,5 +34,12 @@ export default {
   Bell,
   Search,
   Message,
-  PhoneCall
+  PhoneCall,
+  ArrowLeft,
+  Envelope,
+  Location,
+  LinkBroken,
+  CheckCircle,
+  CheckRaw,
+  CheckRaw2
 };

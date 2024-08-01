@@ -1,6 +1,6 @@
 import { View, Text, StatusBar } from "react-native";
 import React from "react";
-import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
+import { SafeAreaProvider } from "react-native-safe-area-context";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Login from "./src/screens/Login";
@@ -11,22 +11,55 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import HomeHeader from "./src/components/headers/HomeHeader";
 import { RootStackParamList } from "./src/navigation";
 import ClientDueAmount from "./src/screens/dueAmount/ClientDueAmount";
+import UserProvider from "./src/context/UserContext";
+import { ClientProvider } from "./src/context/ClientContext";
+import PreviousPayments from "./src/screens/dueAmount/PreviousPayments";
+import { initialDueAmountClients, initialPropertyClients } from "./src/context/fakeData";
+import UpdateToClient from "./src/screens/dueAmount/UpdateToClient";
+import PropertyInformation from "./src/screens/propertyClient/PropertyInformation";
 
 const App = () => {
   const Stack = createNativeStackNavigator<RootStackParamList>();
   return (
     <SafeAreaProvider>
-      <StatusBar backgroundColor="#ffffff" barStyle="dark-content" />
-      <NavigationContainer>
-        <Stack.Navigator
-          initialRouteName="MainMenu"
-          screenOptions={{ headerShown: false }}
-        >
-          <Stack.Screen name="Login" component={Login} />
-          <Stack.Screen name="MainMenu" component={TabsLayout} />
-          <Stack.Screen name="ClientDueAmount" component={ClientDueAmount} />
-        </Stack.Navigator>
-      </NavigationContainer>
+      <UserProvider>
+        <ClientProvider>
+          <StatusBar backgroundColor="#ffffff" barStyle="dark-content" />
+          <NavigationContainer>
+            <Stack.Navigator
+              initialRouteName="MainMenu"
+              screenOptions={{ headerShown: false }}
+            >
+              <Stack.Screen name="Login" component={Login} />
+              <Stack.Screen name="MainMenu" component={TabsLayout} />
+              <Stack.Screen
+                name="ClientDueAmount"
+                component={ClientDueAmount}
+                //developmentonly
+                initialParams={{user: initialDueAmountClients[0]}}
+              />
+              <Stack.Screen
+                name="PreviousPayments"
+                component={PreviousPayments}
+                // developmentonly
+                initialParams={{user: initialDueAmountClients[0]}}
+              />
+              <Stack.Screen
+                name="UpdateToClient"
+                component={UpdateToClient}
+                // developmentonly
+                initialParams={{user: initialDueAmountClients[0]}}
+              />
+              <Stack.Screen
+                name="PropertyInformation"
+                component={PropertyInformation}
+                // developmentonly
+                initialParams={{user: initialPropertyClients[0]}}
+              />
+            </Stack.Navigator>
+          </NavigationContainer>
+        </ClientProvider>
+      </UserProvider>
     </SafeAreaProvider>
   );
 };
@@ -119,7 +152,7 @@ const TabsLayout = () => {
             key={item.name}
             component={item.component}
             options={{
-              headerTitle: ()=> <HomeHeader/>,
+              headerTitle: () => <HomeHeader />,
               headerStatusBarHeight: 10,
               tabBarIcon: ({ color, focused }) => (
                 <TabIcon

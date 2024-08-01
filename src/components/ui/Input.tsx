@@ -17,7 +17,7 @@ const InputVariants = cva("flex flex-col gap-1.5", {
   variants: {
     theme: {
       default: "border-blueSecondary border rounded-lg px-3.5 font-medium text-sm",
-      outline: "",
+      outline: "border-b ",
     },
     size: {
       default: "",

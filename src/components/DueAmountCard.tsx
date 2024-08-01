@@ -1,39 +1,43 @@
-import { View, Text, Image, TouchableOpacity, TouchableWithoutFeedback } from "react-native";
+import {
+  View,
+  Text,
+  Image,
+  TouchableOpacity,
+} from "react-native";
 import React from "react";
 import icons from "../lib/icons";
 import { robotoRegular } from "../lib/fonts";
 import { useNavigation } from "@react-navigation/native";
-import { HomeScreenNavigationProp, RootStackParamList, TabParamList } from "../navigation";
-import {  StackScreenProps } from "@react-navigation/stack";
+import {
+  HomeScreenNavigationProp,
+} from "../navigation";
 
 interface DueAmountCardProps {
-  id: string;
-  name: string;
-  phone: string;
-  dueAmount: number;
+  user: DueAmountClient;
 }
 
-const DueAmountCard = ({id, name, phone, dueAmount}: DueAmountCardProps) => {
+const DueAmountCard = ({ user }: DueAmountCardProps) => {
   const navigation = useNavigation<HomeScreenNavigationProp>();
   return (
     <TouchableOpacity
-    activeOpacity={0.9}
+      activeOpacity={0.9}
       className="py-4 px-2 bg-blueLight items-center flex-row justify-between rounded-lg shadow-sm shadow-black"
-      style={{backgroundColor: "#e6f0fc"}}
-      onPress={()=>{navigation.navigate('ClientDueAmount', {user: {name: "yashraj"}})}}
+      onPress={() => {
+        navigation.navigate("ClientDueAmount", { user });
+      }}
     >
       <View className="gap-2">
         <Text style={robotoRegular} className="text-black">
-          Customer ID : 231
+          Customer ID :{user.customerId}
         </Text>
         <Text style={robotoRegular} className="text-black">
-          Name : yashraj
+          Name : {user.name}
         </Text>
         <Text style={robotoRegular} className="text-black">
-          Phone No : yashraj
+          Phone No : {user.phone}
         </Text>
         <Text style={robotoRegular} className="text-black">
-          Due Amount : 1000
+          Due Amount : {user.dueAmount}
         </Text>
       </View>
       <View

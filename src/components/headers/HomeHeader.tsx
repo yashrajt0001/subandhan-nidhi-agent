@@ -16,10 +16,10 @@ const HomeHeader = () => {
         </Text>
       </View>
       <View className="flex-row gap-4">
-        <TouchableOpacity className="p-3 rounded-full border border-[lightSKyBlue]">
+        <TouchableOpacity className="p-3 rounded-full border border-blueLight">
           <Image source={icons.Bell} className="w-4 h-4"/>
         </TouchableOpacity>
-        <TouchableOpacity className="p-3 rounded-full border border-[lightSKyBlue]">
+        <TouchableOpacity className="p-3 rounded-full border border-blueLight">
           <Image source={icons.Search} className="w-4 h-4"/>
         </TouchableOpacity>
       </View>

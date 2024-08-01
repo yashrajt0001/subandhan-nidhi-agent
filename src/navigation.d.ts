@@ -6,9 +6,16 @@ type RootStackParamList = {
     Login: undefined
     MainMenu: NavigatorScreenParams<TabParamList>
     ClientDueAmount: {
-        user: {
-            name: string
-        }
+        user: DueAmountClient
+    }
+    PreviousPayments: {
+        user: DueAmountClient
+    }
+    UpdateToClient: {
+        user: DueAmountClient
+    }
+    PropertyInformation: {
+        user: PropertyClient
     }
 };
 

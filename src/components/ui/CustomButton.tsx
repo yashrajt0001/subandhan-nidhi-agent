@@ -24,7 +24,7 @@ const ButtonVariants = cva("", {
   variants: {
     theme: {
       link: "bg-white py-2 pr-2",
-      outline: "",
+      outline: "bg-white border border-redPrimary rounded-lg flex items-center justify-center py-3.5",
       default:
         "bg-redPrimary flex items-center justify-center py-3.5 rounded-lg",
     },
@@ -35,6 +35,7 @@ const ButtonVariants = cva("", {
     textColor: {
       white: "text-white",
       link: "text-bluePrimary text-base",
+      red: 'text-redPrimary'
     },
   },
   defaultVariants: {
@@ -61,6 +62,7 @@ const CustomButton = forwardRef<
     ref
   ) => (
     <TouchableOpacity
+      activeOpacity={0.5}
       className={cn(ButtonVariants({ theme, size, className }))}
       {...props}
     >

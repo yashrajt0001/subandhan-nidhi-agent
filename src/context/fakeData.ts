@@ -1,0 +1,138 @@
+export const initialDueAmountClients: DueAmountClients = [
+  {
+    customerId: "123",
+    dueAmount: 323,
+    dueDays: 2,
+    loan: "type",
+    name: "yashraj",
+    paidAmount: 877,
+    phone: "9867899923",
+    totalAmount: 677898,
+    totalLateCharges: 79888,
+    previousPayments: [
+      {
+        amount: 50000,
+        date: "March(1/4)",
+        dueDays: 1,
+        status: "Paid",
+      },
+      {
+        amount: 50000,
+        date: "March(1/4)",
+        dueDays: 1,
+        status: "Paid",
+      },
+      {
+        amount: 50000,
+        date: "March(1/4)",
+        dueDays: 1,
+        status: "Paid",
+      },
+      {
+        amount: 50000,
+        date: "March(1/4)",
+        dueDays: 1,
+        status: "Unpaid",
+      },
+      {
+        amount: 50000,
+        date: "March(1/4)",
+        dueDays: 1,
+        status: "Paid",
+      },
+      {
+        amount: 50000,
+        date: "March(1/4)",
+        dueDays: 1,
+        status: "Unpaid",
+      },
+      {
+        amount: 50000,
+        date: "March(1/4)",
+        dueDays: 1,
+        status: "Unpaid",
+      },
+    ],
+  },
+  {
+    customerId: "333",
+    dueAmount: 323,
+    dueDays: 2,
+    loan: "type",
+    name: "yashraj",
+    paidAmount: 877,
+    phone: "9867899923",
+    totalAmount: 677898,
+    totalLateCharges: 79888,
+    previousPayments: [
+      {
+        amount: 50000,
+        date: "March(1/4)",
+        dueDays: 1,
+        status: "Paid",
+      },
+      {
+        amount: 50000,
+        date: "March(1/4)",
+        dueDays: 1,
+        status: "Paid",
+      },
+      {
+        amount: 50000,
+        date: "March(1/4)",
+        dueDays: 1,
+        status: "Paid",
+      },
+    ],
+  },
+  {
+    customerId: "34",
+    dueAmount: 323,
+    dueDays: 2,
+    loan: "type",
+    name: "yashraj",
+    paidAmount: 877,
+    phone: "9867899923",
+    totalAmount: 677898,
+    totalLateCharges: 79888,
+    previousPayments: [
+      {
+        amount: 50000,
+        date: "March(1/4)",
+        dueDays: 1,
+        status: "Paid",
+      },
+      {
+        amount: 50000,
+        date: "March(1/4)",
+        dueDays: 1,
+        status: "Paid",
+      },
+      {
+        amount: 50000,
+        date: "March(1/4)",
+        dueDays: 1,
+        status: "Paid",
+      },
+    ],
+  },
+];
+
+export const initialPropertyClients: PropertyClients = [
+  {
+    customerId: "221",
+    name: "yashraj",
+    phone: "8768767782",
+    propertyAddress: "akjbcasbkcbaskc",
+    propertyType: "Villa",
+    propertyValue: 87787,
+  },
+  {
+    customerId: "42332",
+    name: "yashraj",
+    phone: "8768767782",
+    propertyAddress: "akjbcasbkcbaskc",
+    propertyType: "Villa",
+    propertyValue: 87787,
+  },
+];

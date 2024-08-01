@@ -1,5 +1,5 @@
 import { View, Text, TouchableWithoutFeedback } from "react-native";
-import React, { Component, useState } from "react";
+import React, { Component, useContext, useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { robotoMedium, robotoRegular } from "../lib/fonts";
 import SwipeableTabs from "react-native-swipe-tabs";
@@ -7,17 +7,21 @@ import DueAmount from "../components/tabs/DueAmount";
 import PropertyVerification from "../components/tabs/PropertyVerification";
 import KycProcess from "../components/tabs/KycProcess";
 import TabsLabel from "../components/TabsLabel";
+import ClientContext from "../context/ClientContext";
 
 const Home = () => {
+  const allClients = useContext(ClientContext)
   const [selectedTabIndex, setselectedTabIndex] = useState(0);
   const tabsItem = [
     {
       name: "Due Amount",
       component: DueAmount,
+      clients: allClients?.dueAmountClients
     },
     {
       name: "Property Verification",
       component: PropertyVerification,
+      clients: allClients?.propertyClients
     },
     {
       name: "Kyc Process",
@@ -54,7 +58,8 @@ const Home = () => {
         selectedIndex={selectedTabIndex}
       >
         {tabsItem.map((item, index) => {
-          return <item.component key={index}/>;
+          // @ts-ignore
+          return <item.component key={index} clients={item.clients}/>;
         })}
       </SwipeableTabs>
     </SafeAreaView>
