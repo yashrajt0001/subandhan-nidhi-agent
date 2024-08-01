@@ -26,6 +26,7 @@ const Home = () => {
     {
       name: "Kyc Process",
       component: KycProcess,
+      clients: allClients?.kycClients
     },
   ];
   return (
