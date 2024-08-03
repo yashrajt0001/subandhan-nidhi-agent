@@ -3,9 +3,9 @@ import React, { Component, useContext, useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { robotoMedium, robotoRegular } from "../lib/fonts";
 import SwipeableTabs from "react-native-swipe-tabs";
-import DueAmount from "../components/tabs/DueAmount";
-import PropertyVerification from "../components/tabs/PropertyVerification";
-import KycProcess from "../components/tabs/KycProcess";
+import DueAmount from "../components/tabs/HomeTabs/DueAmount";
+import PropertyVerification from "../components/tabs/HomeTabs/PropertyVerification";
+import KycProcess from "../components/tabs/HomeTabs/KycProcess";
 import TabsLabel from "../components/TabsLabel";
 import ClientContext from "../context/ClientContext";
 

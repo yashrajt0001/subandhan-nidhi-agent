@@ -1,9 +1,9 @@
 import { View, Text, FlatList } from "react-native";
 import React, { useState } from "react";
-import SwitchableButton from "../ui/SwitchableButton";
-import { robotoBold } from "../../lib/fonts";
-import KycVerifiedClientCard from "../KycVerifiedClientCard";
-import KycVerifyClientCard from "../KycVerifyClientCard";
+import SwitchableButton from "../../ui/SwitchableButton";
+import { robotoBold } from "../../../lib/fonts";
+import KycVerifiedClientCard from "../../KycVerifiedClientCard";
+import KycVerifyClientCard from "../../KycVerifyClientCard";
 
 interface KycProcessProps {
   clients?: KycClients;
@@ -44,24 +44,22 @@ const KycProcess = ({ clients: kycClients }: KycProcessProps) => {
             <Text className="text-slate-400">No clients</Text>
           </View>
         )
+      ) : kycClients?.verifiedClients ? (
+        <FlatList
+          keyExtractor={(_, index) => index.toString()}
+          data={kycClients.verifiedClients}
+          renderItem={({ item }) => <KycVerifiedClientCard user={item} />}
+          showsVerticalScrollIndicator={false}
+          contentContainerStyle={{
+            paddingBottom: 170,
+            paddingTop: 10,
+            gap: 10,
+          }}
+        />
       ) : (
-        kycClients?.verifiedClients ? (
-          <FlatList
-            keyExtractor={(_, index) => index.toString()}
-            data={kycClients.verifiedClients}
-            renderItem={({ item }) => <KycVerifiedClientCard user={item} />}
-            showsVerticalScrollIndicator={false}
-            contentContainerStyle={{
-              paddingBottom: 170,
-              paddingTop: 10,
-              gap: 10,
-            }}
-          />
-        ) : (
-          <View className="items-center justify-center m-10">
-            <Text className="text-slate-400">No clients</Text>
-          </View>
-        )
+        <View className="items-center justify-center m-10">
+          <Text className="text-slate-400">No clients</Text>
+        </View>
       )}
       <Text className="text-black mt-4" style={robotoBold}>
         User Details

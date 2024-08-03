@@ -19,6 +19,7 @@ import LinkBroken from "../assets/icons/LinkBroken.png";
 import CheckCircle from "../assets/icons/CheckCircle.png";
 import CheckRaw from "../assets/icons/CheckRaw.png";
 import CheckRaw2 from "../assets/icons/CheckRaw2.png";
+import CheckGreen from "../assets/icons/CheckGreen.png";
 
 export default {
   HistoryOutline,
@@ -41,5 +42,6 @@ export default {
   LinkBroken,
   CheckCircle,
   CheckRaw,
-  CheckRaw2
+  CheckRaw2,
+  CheckGreen
 };

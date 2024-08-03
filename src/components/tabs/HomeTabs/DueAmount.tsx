@@ -1,23 +1,19 @@
 import { View, Text, FlatList } from "react-native";
 import React from "react";
-import DueAmountCard from "../DueAmountCard";
+import DueAmountCard from "../../DueAmountCard";
 
 interface DueAmountProps {
-  clients?: DueAmountClients
+  clients?: DueAmountClients;
 }
 
-const DueAmount = ({clients: dueAmountClients}: DueAmountProps) => {
+const DueAmount = ({ clients: dueAmountClients }: DueAmountProps) => {
   return (
     <View className="mr-8">
       {dueAmountClients ? (
         <FlatList
           keyExtractor={(item) => item.customerId}
           data={dueAmountClients}
-          renderItem={({ item }) => (
-            <DueAmountCard
-              user={item}
-            />
-          )}
+          renderItem={({ item }) => <DueAmountCard user={item} />}
           showsVerticalScrollIndicator={false}
           contentContainerStyle={{
             paddingBottom: 120,

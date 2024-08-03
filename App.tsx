@@ -14,9 +14,16 @@ import ClientDueAmount from "./src/screens/dueAmount/ClientDueAmount";
 import UserProvider from "./src/context/UserContext";
 import { ClientProvider } from "./src/context/ClientContext";
 import PreviousPayments from "./src/screens/dueAmount/PreviousPayments";
-import { initialDueAmountClients, initialPropertyClients } from "./src/context/fakeData";
+import {
+  initialDueAmountClients,
+  initialKycClients,
+  initialPropertyClients,
+} from "./src/context/fakeData";
 import UpdateToClient from "./src/screens/dueAmount/UpdateToClient";
 import PropertyInformation from "./src/screens/propertyClient/PropertyInformation";
+import VerifiedDocuments from "./src/screens/kycVerification/VerifiedDocuments";
+import Overdue from "./src/screens/Overdue";
+import CustomHeader from "./src/components/headers/CustomHeader";
 
 const App = () => {
   const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -36,25 +43,31 @@ const App = () => {
                 name="ClientDueAmount"
                 component={ClientDueAmount}
                 //developmentonly
-                initialParams={{user: initialDueAmountClients[0]}}
+                initialParams={{ user: initialDueAmountClients[0] }}
               />
               <Stack.Screen
                 name="PreviousPayments"
                 component={PreviousPayments}
                 // developmentonly
-                initialParams={{user: initialDueAmountClients[0]}}
+                initialParams={{ user: initialDueAmountClients[0] }}
               />
               <Stack.Screen
                 name="UpdateToClient"
                 component={UpdateToClient}
                 // developmentonly
-                initialParams={{user: initialDueAmountClients[0]}}
+                initialParams={{ user: initialDueAmountClients[0] }}
               />
               <Stack.Screen
                 name="PropertyInformation"
                 component={PropertyInformation}
                 // developmentonly
-                initialParams={{user: initialPropertyClients[0]}}
+                initialParams={{ user: initialPropertyClients[0] }}
+              />
+              <Stack.Screen
+                name="VerifiedDocuments"
+                component={VerifiedDocuments}
+                // developmentonly
+                initialParams={{ user: initialKycClients.verifiedClients[0] }}
               />
             </Stack.Navigator>
           </NavigationContainer>
@@ -105,8 +118,8 @@ const TabsLayout = () => {
     },
     {
       name: "Overdue",
-      label: "Over due",
-      component: Home,
+      label: "Over Dues",
+      component: Overdue,
       fillIcon: icons.OverdueFill,
       outlineIcon: icons.OverdueOutline,
     },
@@ -152,7 +165,7 @@ const TabsLayout = () => {
             key={item.name}
             component={item.component}
             options={{
-              headerTitle: () => <HomeHeader />,
+              headerTitle: () => item.name === 'Home' ? <HomeHeader /> : <CustomHeader name={item.label}/>,
               headerStatusBarHeight: 10,
               tabBarIcon: ({ color, focused }) => (
                 <TabIcon

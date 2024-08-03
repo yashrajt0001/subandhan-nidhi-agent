@@ -17,6 +17,9 @@ type RootStackParamList = {
     PropertyInformation: {
         user: PropertyClient
     }
+    VerifiedDocuments: {
+        user: KycVerifiedClient
+    }
 };
 
 type TabParamList = {
@@ -30,4 +33,9 @@ type TabParamList = {
 type HomeScreenNavigationProp = CompositeNavigationProp<
   StackNavigationProp<RootStackParamList>,
   BottomTabNavigationProp<TabParamList, 'Home'>
+>;
+
+type OverdueScreenNavigationProp = CompositeNavigationProp<
+  StackNavigationProp<RootStackParamList>,
+  BottomTabNavigationProp<TabParamList, 'Overdue'>
 >;

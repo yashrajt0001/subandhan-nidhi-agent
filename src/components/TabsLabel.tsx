@@ -4,24 +4,31 @@ import { robotoMedium } from "../lib/fonts";
 
 interface TabsLabelProps {
   name: string;
+  themed?: boolean;
   index: number;
   setter: (index: number) => void;
-  selectedTabIndex: number
+  selectedTabIndex: number;
 }
 
 const TabsLabel = ({
+  themed,
   name,
   index,
   setter,
-  selectedTabIndex
+  selectedTabIndex,
 }: TabsLabelProps) => {
   return (
     <TouchableWithoutFeedback onPress={() => setter(index)}>
-      <View className=" py-2" style={{ alignSelf: "flex-start" }}>
-        <Text className="text-[#0A0A0A] px-0.5" style={robotoMedium}>
+      <View className={`py-2 ${themed && 'gap-y-2'}`} style={{ alignSelf: "flex-start" }}>
+        <Text
+          className={`text-[#0A0A0A] ${themed ? "px-4" : "px-0.5"} ${themed && index === selectedTabIndex && "text-bluePrimary"}`}
+          style={robotoMedium}
+        >
           {name}
         </Text>
-       {index === selectedTabIndex && <View className="bg-bluePrimary h-[2px] rounded-lg" />}
+        {index === selectedTabIndex && (
+          <View className={`bg-bluePrimary h-[2px] rounded-lg`} />
+        )}
       </View>
     </TouchableWithoutFeedback>
   );

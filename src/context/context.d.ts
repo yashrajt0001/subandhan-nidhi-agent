@@ -62,4 +62,42 @@ type ClientsType = {
   dueAmountClients: DueAmountClients;
   propertyClients: PropertyClients;
   kycClients: KycClients;
+  overdueClients: OverdueClients
 };
+
+type OverdueRespondedClient = {
+  customerId: string
+  name: string
+  phone: string
+  address: string
+  loanType: 'Business loan'
+  totalLoanAMount: number
+  dueAmount: number
+  dueDays: number
+  paidAmount: number
+  reason: string
+  rePayingDate: Date
+  addedInterest: number
+  totalAmount: number
+}
+
+type OverdueUnrespondedClient = {
+  customerId: string
+  name: string
+  phone: string
+  address: string
+  loanType: 'Business loan'
+  totalLoanAMount: number
+  dueAmount: number
+  dueDays: number
+  paidAmount: number
+  rePayingDate: Date
+  addedInterest: number
+  totalAmount: number
+}
+
+type OverdueClients = {
+  RespondedClients: OverdueRespondedClient[]
+  UnrespondedClients: OverdueUnrespondedClient[]
+}
+
