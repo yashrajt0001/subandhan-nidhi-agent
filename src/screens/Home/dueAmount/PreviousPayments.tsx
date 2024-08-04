@@ -1,12 +1,12 @@
 import { View, Text, Image, TouchableOpacity, FlatList } from "react-native";
 import React, { useContext } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
-import CustomHeader from "../../components/headers/CustomHeader";
-import ClientDetails from "../../components/clientDetails/DueAmountClientDetails";
+import CustomHeader from "../../../components/headers/CustomHeader";
+import ClientDetails from "../../../components/clientDetails/DueAmountClientDetails";
 import { StackScreenProps } from "@react-navigation/stack";
-import { RootStackParamList } from "../../navigation";
-import { robotoMedium } from "../../lib/fonts";
-import icons from "../../lib/icons";
+import { RootStackParamList } from "../../../navigation";
+import { robotoMedium } from "../../../lib/fonts";
+import icons from "../../../lib/icons";
 
 type PreviousPaymentsProps = StackScreenProps<
   RootStackParamList,

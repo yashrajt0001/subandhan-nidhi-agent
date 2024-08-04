@@ -1,12 +1,12 @@
 import { View, Text, ScrollView } from "react-native";
 import React, { useState } from "react";
 import type { StackScreenProps } from "@react-navigation/stack";
-import { RootStackParamList } from "../../navigation";
+import { RootStackParamList } from "../../../navigation";
 import { SafeAreaView } from "react-native-safe-area-context";
-import CustomHeader from "../../components/headers/CustomHeader";
-import PropertyClientDetails from "../../components/clientDetails/PropertyClientDetails";
-import Checkbox from "../../components/ui/Checkbox";
-import { CustomButton } from "../../components/ui/CustomButton";
+import CustomHeader from "../../../components/headers/CustomHeader";
+import PropertyClientDetails from "../../../components/clientDetails/PropertyClientDetails";
+import Checkbox from "../../../components/ui/Checkbox";
+import { CustomButton } from "../../../components/ui/CustomButton";
 
 type PropertyInformation = StackScreenProps<
   RootStackParamList,
@@ -46,7 +46,11 @@ const PropertyInformation = ({ navigation, route }: PropertyInformation) => {
             text="Documents sent to Admin"
           />
         </View>
-        <CustomButton theme='default' title="Update to Admin" className="mt-6"/>
+        <CustomButton
+          theme="default"
+          title="Update to Admin"
+          className="mt-6"
+        />
       </ScrollView>
     </SafeAreaView>
   );

@@ -1,5 +1,5 @@
 import React, { createContext, useState } from "react";
-import { initialDueAmountClients, initialKycClients, initialOverdueClients, initialPropertyClients } from "./fakeData";
+import { initialDueAmountClients, initialHistoryDueAmountClients, initialKycClients, initialOverdueClients, initialPropertyClients } from "./fakeData";
 
 const ClientContext = createContext<ClientsType | null>(null);
 
@@ -8,8 +8,9 @@ export const ClientProvider = ({ children }: { children: React.ReactNode }) => {
   const [propertyClients, setPropertyClients] = useState<PropertyClients>(initialPropertyClients);
   const [kycClients, setKycClients] = useState<KycClients>(initialKycClients);
   const [overdueClients, setoverdueClients] = useState<OverdueClients>(initialOverdueClients)
+  const [historyDueAmountClients, setHistoryDueAmountClients] = useState<HistoryDueAmountClients>(initialHistoryDueAmountClients)
 
-  return <ClientContext.Provider value={{dueAmountClients, propertyClients, kycClients, overdueClients}}>{children}</ClientContext.Provider>;
+  return <ClientContext.Provider value={{dueAmountClients, propertyClients, kycClients, overdueClients, historyDueAmountClients}}>{children}</ClientContext.Provider>;
 };
 
 export default ClientContext;

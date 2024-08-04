@@ -20,6 +20,9 @@ import CheckCircle from "../assets/icons/CheckCircle.png";
 import CheckRaw from "../assets/icons/CheckRaw.png";
 import CheckRaw2 from "../assets/icons/CheckRaw2.png";
 import CheckGreen from "../assets/icons/CheckGreen.png";
+import SearchBlack from "../assets/icons/SearchBlack.png";
+import CheckCircle2 from "../assets/icons/CheckCircle2.png";
+import AlertCircle from "../assets/icons/AlertCircle.png";
 
 export default {
   HistoryOutline,
@@ -43,5 +46,8 @@ export default {
   CheckCircle,
   CheckRaw,
   CheckRaw2,
-  CheckGreen
+  CheckGreen,
+  SearchBlack,
+  CheckCircle2,
+  AlertCircle
 };

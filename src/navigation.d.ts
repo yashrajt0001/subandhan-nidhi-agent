@@ -20,6 +20,15 @@ type RootStackParamList = {
     VerifiedDocuments: {
         user: KycVerifiedClient
     }
+    RespondedClientDetailsScreen: {
+        user: OverdueRespondedClient
+    }
+    UnrespondedClientDetailsScreen: {
+        user: OverdueUnrespondedClient
+    }
+    HistoryClientDetails: {
+        user: HistoryDueAmountClient
+    }
 };
 
 type TabParamList = {
@@ -38,4 +47,9 @@ type HomeScreenNavigationProp = CompositeNavigationProp<
 type OverdueScreenNavigationProp = CompositeNavigationProp<
   StackNavigationProp<RootStackParamList>,
   BottomTabNavigationProp<TabParamList, 'Overdue'>
+>;
+
+type HistoryScreenNavigationProp = CompositeNavigationProp<
+  StackNavigationProp<RootStackParamList>,
+  BottomTabNavigationProp<TabParamList, 'History'>
 >;

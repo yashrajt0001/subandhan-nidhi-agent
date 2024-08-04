@@ -21,13 +21,13 @@ const TabsLabel = ({
     <TouchableWithoutFeedback onPress={() => setter(index)}>
       <View className={`py-2 ${themed && 'gap-y-2'}`} style={{ alignSelf: "flex-start" }}>
         <Text
-          className={`text-[#0A0A0A] ${themed ? "px-4" : "px-0.5"} ${themed && index === selectedTabIndex && "text-bluePrimary"}`}
+          className={`text-[#0A0A0A] ${themed ? "px-4" : "px-0.5 mb-[2px]"} ${themed && index === selectedTabIndex && "text-bluePrimary"}`}
           style={robotoMedium}
         >
           {name}
         </Text>
         {index === selectedTabIndex && (
-          <View className={`bg-bluePrimary h-[2px] rounded-lg`} />
+          <View className={`bg-bluePrimary h-[3px] rounded-lg`} />
         )}
       </View>
     </TouchableWithoutFeedback>

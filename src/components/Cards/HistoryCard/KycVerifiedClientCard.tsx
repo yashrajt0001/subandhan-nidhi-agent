@@ -1,17 +1,22 @@
 import { View, Text, Image, TouchableOpacity } from "react-native";
 import React from "react";
-import { robotoRegular } from "../lib/fonts";
+import { robotoRegular } from "../../../lib/fonts";
 import { useNavigation } from "@react-navigation/native";
-import { HomeScreenNavigationProp } from "../navigation";
+import { HomeScreenNavigationProp } from "../../../navigation";
 
-interface KycVerifyClientCardProps {
-  user: KycVerifyClient;
+interface KycVerifiedClientCardProps {
+  user: KycVerifiedClient;
 }
 
-const KycVerifyClientCard = ({ user }: KycVerifyClientCardProps) => {
-  const navigation = useNavigation<HomeScreenNavigationProp>()
+const KycVerifiedClientCard = ({ user }: KycVerifiedClientCardProps) => {
+  const navigation = useNavigation<HomeScreenNavigationProp>();
+
   return (
-    <TouchableOpacity activeOpacity={0.5} onPress={()=>{}} className="flex-row w-full justify-between p-4 bg-blueLight items-center border border-gray-300 rounded-md">
+    <TouchableOpacity
+      activeOpacity={0.5}
+      onPress={() => navigation.navigate("VerifiedDocuments", { user })}
+      className="flex-row w-full justify-between p-4 bg-blueLight items-center border border-gray-300 rounded-md"
+    >
       <View>
         <Text style={robotoRegular} className="text-black">
           Name : {user.name}
@@ -42,4 +47,4 @@ const KycVerifyClientCard = ({ user }: KycVerifyClientCardProps) => {
   );
 };
 
-export default KycVerifyClientCard;
+export default KycVerifiedClientCard;

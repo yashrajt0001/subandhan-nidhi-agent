@@ -1,25 +1,22 @@
 import { View, Text, FlatList } from "react-native";
 import React from "react";
-import DueAmountCard from "../../Cards/HistoryCard/HistoryDueAmountCard";
-import PropertyClientCard from "../../Cards/HistoryCard/PropertyClientCard";
+import HistoryDueAmountCard from "../../Cards/HistoryCard/HistoryDueAmountCard";
 
-interface PropertyVerificationProps {
-  clients?: PropertyClients;
+interface DueAmountProps {
+  clients?: HistoryDueAmountClients;
 }
 
-const PropertyVerification = ({
-  clients: dueAmountClients,
-}: PropertyVerificationProps) => {
+const DueAmount = ({ clients: dueAmountClients }: DueAmountProps) => {
   return (
     <View className="mr-8">
       {dueAmountClients ? (
         <FlatList
-          keyExtractor={(item) => item.customerId}
+          keyExtractor={(item, index) => index.toString()}
           data={dueAmountClients}
-          renderItem={({ item }) => <PropertyClientCard user={item} />}
+          renderItem={({ item }) => <HistoryDueAmountCard user={item} />}
           showsVerticalScrollIndicator={false}
           contentContainerStyle={{
-            paddingBottom: 120,
+            paddingBottom: 100,
             paddingTop: 10,
             gap: 10,
           }}
@@ -33,4 +30,4 @@ const PropertyVerification = ({
   );
 };
 
-export default PropertyVerification;
+export default DueAmount;

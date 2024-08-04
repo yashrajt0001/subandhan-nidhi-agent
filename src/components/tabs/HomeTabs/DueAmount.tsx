@@ -11,7 +11,7 @@ const DueAmount = ({ clients: dueAmountClients }: DueAmountProps) => {
     <View className="mr-8">
       {dueAmountClients ? (
         <FlatList
-          keyExtractor={(item) => item.customerId}
+          keyExtractor={(item, index) => index.toString()}
           data={dueAmountClients}
           renderItem={({ item }) => <DueAmountCard user={item} />}
           showsVerticalScrollIndicator={false}

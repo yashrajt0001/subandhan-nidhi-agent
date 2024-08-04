@@ -1,14 +1,14 @@
 import { View, Text, SafeAreaView, ScrollView } from "react-native";
 import React, { useState } from "react";
-import CustomHeader from "../../components/headers/CustomHeader";
-import ClientDetails from "../../components/clientDetails/DueAmountClientDetails";
+import CustomHeader from "../../../components/headers/CustomHeader";
+import ClientDetails from "../../../components/clientDetails/DueAmountClientDetails";
 import { StackScreenProps } from "@react-navigation/stack";
-import { RootStackParamList } from "../../navigation";
-import ToggleButton from "../../components/ui/ToggleButton";
-import { robotoMedium, robotoRegular } from "../../lib/fonts";
-import { Input } from "../../components/ui/Input";
+import { RootStackParamList } from "../../../navigation";
+import ToggleButton from "../../../components/ui/ToggleButton";
+import { robotoMedium, robotoRegular } from "../../../lib/fonts";
+import { Input } from "../../../components/ui/Input";
 import { TouchableOpacity } from "react-native";
-import { CustomButton } from "../../components/ui/CustomButton";
+import { CustomButton } from "../../../components/ui/CustomButton";
 
 type UpdateToClientProps = StackScreenProps<
   RootStackParamList,

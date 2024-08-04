@@ -13,6 +13,22 @@ type DueAmountClient = {
 
 type DueAmountClients = DueAmountClient[];
 
+type HistoryDueAmountClient = {
+  customerId: string;
+  name: string;
+  age: number,
+  phone: string;
+  loanType: "type";
+  loanAmount: number
+  paidAmount: number;
+  dueAmount: number;
+  numberOfEmi: number
+  latePayments: number
+  status: boolean
+};
+
+type HistoryDueAmountClients = HistoryDueAmountClient[]
+
 type PropertyClient = {
   customerId: string;
   name: string;
@@ -62,42 +78,42 @@ type ClientsType = {
   dueAmountClients: DueAmountClients;
   propertyClients: PropertyClients;
   kycClients: KycClients;
-  overdueClients: OverdueClients
+  overdueClients: OverdueClients;
+  historyDueAmountClients: HistoryDueAmountClients
 };
 
 type OverdueRespondedClient = {
-  customerId: string
-  name: string
-  phone: string
-  address: string
-  loanType: 'Business loan'
-  totalLoanAMount: number
-  dueAmount: number
-  dueDays: number
-  paidAmount: number
-  reason: string
-  rePayingDate: Date
-  addedInterest: number
-  totalAmount: number
-}
+  customerId: string;
+  name: string;
+  phone: string;
+  address: string;
+  loanType: "Business loan";
+  totalLoanAMount: number;
+  dueAmount: number;
+  dueDays: number;
+  paidAmount: number;
+  reason: string;
+  rePayingDate: Date;
+  addedInterest: number;
+  totalAmount: number;
+};
 
 type OverdueUnrespondedClient = {
-  customerId: string
-  name: string
-  phone: string
-  address: string
-  loanType: 'Business loan'
-  totalLoanAMount: number
-  dueAmount: number
-  dueDays: number
-  paidAmount: number
-  rePayingDate: Date
-  addedInterest: number
-  totalAmount: number
-}
+  customerId: string;
+  name: string;
+  phone: string;
+  address: string;
+  loanType: "Business loan";
+  totalLoanAMount: number;
+  dueAmount: number;
+  dueDays: number;
+  paidAmount: number;
+  rePayingDate: Date;
+  addedInterest: number;
+  totalAmount: number;
+};
 
 type OverdueClients = {
-  RespondedClients: OverdueRespondedClient[]
-  UnrespondedClients: OverdueUnrespondedClient[]
-}
-
+  RespondedClients: OverdueRespondedClient[];
+  UnrespondedClients: OverdueUnrespondedClient[];
+};

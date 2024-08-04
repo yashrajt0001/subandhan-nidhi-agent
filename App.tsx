@@ -10,20 +10,26 @@ import icons from "./src/lib/icons";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import HomeHeader from "./src/components/headers/HomeHeader";
 import { RootStackParamList } from "./src/navigation";
-import ClientDueAmount from "./src/screens/dueAmount/ClientDueAmount";
+import ClientDueAmount from "./src/screens/Home/dueAmount/ClientDueAmount";
 import UserProvider from "./src/context/UserContext";
 import { ClientProvider } from "./src/context/ClientContext";
-import PreviousPayments from "./src/screens/dueAmount/PreviousPayments";
+import PreviousPayments from "./src/screens/Home/dueAmount/PreviousPayments";
 import {
   initialDueAmountClients,
+  initialHistoryDueAmountClients,
   initialKycClients,
+  initialOverdueClients,
   initialPropertyClients,
 } from "./src/context/fakeData";
-import UpdateToClient from "./src/screens/dueAmount/UpdateToClient";
-import PropertyInformation from "./src/screens/propertyClient/PropertyInformation";
-import VerifiedDocuments from "./src/screens/kycVerification/VerifiedDocuments";
+import UpdateToClient from "./src/screens/Home/dueAmount/UpdateToClient";
+import PropertyInformation from "./src/screens/Home/propertyClient/PropertyInformation";
+import VerifiedDocuments from "./src/screens/Home/kycVerification/VerifiedDocuments";
 import Overdue from "./src/screens/Overdue";
 import CustomHeader from "./src/components/headers/CustomHeader";
+import RespondedClientDetailsScreen from "./src/screens/overdue/RespondedClientDetailsScreen";
+import UnrespondedClientDetailsScreen from "./src/screens/overdue/UnrespondedClientDetailsScreen";
+import History from "./src/screens/History";
+import ClientDetail from "./src/screens/History/DueAmount/ClientDetail";
 
 const App = () => {
   const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -68,6 +74,30 @@ const App = () => {
                 component={VerifiedDocuments}
                 // developmentonly
                 initialParams={{ user: initialKycClients.verifiedClients[0] }}
+              />
+              <Stack.Screen
+                name="RespondedClientDetailsScreen"
+                component={RespondedClientDetailsScreen}
+                // developmentonly
+                initialParams={{
+                  user: initialOverdueClients.RespondedClients[0],
+                }}
+              />
+              <Stack.Screen
+                name="UnrespondedClientDetailsScreen"
+                component={UnrespondedClientDetailsScreen}
+                // developmentonly
+                initialParams={{
+                  user: initialOverdueClients.UnrespondedClients[0],
+                }}
+              />
+              <Stack.Screen
+                name="HistoryClientDetails"
+                component={ClientDetail}
+                // developmentonly
+                initialParams={{
+                  user: initialHistoryDueAmountClients[0],
+                }}
               />
             </Stack.Navigator>
           </NavigationContainer>
@@ -127,13 +157,15 @@ const TabsLayout = () => {
       name: "Pending",
       label: "Pending's",
       component: Home,
+      search: true,
       fillIcon: icons.PendingFill,
       outlineIcon: icons.PendingOutline,
     },
     {
       name: "History",
       label: "History",
-      component: Home,
+      component: History,
+      search: true,
       fillIcon: icons.HistoryFill,
       outlineIcon: icons.HistoryOutline,
     },
@@ -165,7 +197,12 @@ const TabsLayout = () => {
             key={item.name}
             component={item.component}
             options={{
-              headerTitle: () => item.name === 'Home' ? <HomeHeader /> : <CustomHeader name={item.label}/>,
+              headerTitle: () =>
+                item.name === "Home" ? (
+                  <HomeHeader />
+                ) : (
+                  <CustomHeader name={item.label} search={item.search} />
+                ),
               headerStatusBarHeight: 10,
               tabBarIcon: ({ color, focused }) => (
                 <TabIcon

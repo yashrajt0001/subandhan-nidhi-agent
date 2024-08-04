@@ -387,3 +387,58 @@ export const initialOverdueClients: OverdueClients = {
     },
   ],
 };
+
+export const initialHistoryDueAmountClients: HistoryDueAmountClients = [
+  {
+    customerId: '#112223',
+    age: 21,
+    dueAmount: 2000,
+    latePayments: 4,
+    loanAmount: 2000,
+    loanType: 'type',
+    name: 'yashraj',
+    numberOfEmi: 4,
+    paidAmount: 200,
+    phone: '8955774776',
+    status: true
+  },
+  {
+    customerId: '#112223',
+    age: 21,
+    dueAmount: 2000,
+    latePayments: 4,
+    loanAmount: 2000,
+    loanType: 'type',
+    name: 'yashraj',
+    numberOfEmi: 4,
+    paidAmount: 200,
+    phone: '8955774776',
+    status: false
+  },
+  {
+    customerId: '#112223',
+    age: 21,
+    dueAmount: 2000,
+    latePayments: 4,
+    loanAmount: 2000,
+    loanType: 'type',
+    name: 'yashraj',
+    numberOfEmi: 4,
+    paidAmount: 200,
+    phone: '8955774776',
+    status: true
+  },
+  {
+    customerId: '#112223',
+    age: 21,
+    dueAmount: 2000,
+    latePayments: 4,
+    loanAmount: 2000,
+    loanType: 'type',
+    name: 'yashraj',
+    numberOfEmi: 4,
+    paidAmount: 200,
+    phone: '8955774776',
+    status: false
+  },
+]

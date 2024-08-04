@@ -1,11 +1,11 @@
 import { View, Text, SafeAreaView, ScrollView } from "react-native";
 import React from "react";
-import CustomHeader from "../../components/headers/CustomHeader";
-import KycVerifiedClientCard from "../../components/KycVerifiedClientCard";
+import CustomHeader from "../../../components/headers/CustomHeader";
+import KycVerifiedClientCard from "../../../components/Cards/HistoryCard/KycVerifiedClientCard";
 import { StackScreenProps } from "@react-navigation/stack";
-import { RootStackParamList } from "../../navigation";
-import { robotoBold } from "../../lib/fonts";
-import DocumentCard from "../../components/DocumentCard";
+import { RootStackParamList } from "../../../navigation";
+import { robotoBold } from "../../../lib/fonts";
+import DocumentCard from "../../../components/Cards/HomeCard/DocumentCard";
 
 type VerifiedDocumentsProps = StackScreenProps<
   RootStackParamList,
