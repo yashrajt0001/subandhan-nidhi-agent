@@ -5,11 +5,11 @@ import { robotoBold } from "../../../lib/fonts";
 import KycVerifiedClientCard from "../../Cards/HistoryCard/KycVerifiedClientCard";
 import KycVerifyClientCard from "../../Cards/HomeCard/KycVerifyClientCard";
 
-interface KycProcessProps {
+interface HistoryKycProcessProps {
   clients?: KycClients;
 }
 
-const KycProcess = ({ clients: kycClients }: KycProcessProps) => {
+const HistoryKycProcess = ({ clients: kycClients }: HistoryKycProcessProps) => {
   const [activeTab, setActiveTab] = useState<"verified" | "verify">("verify");
   return (
     <View className="mr-8">
@@ -68,4 +68,4 @@ const KycProcess = ({ clients: kycClients }: KycProcessProps) => {
   );
 };
 
-export default KycProcess;
+export default HistoryKycProcess;

@@ -1,13 +1,12 @@
 import { View, Text, TouchableWithoutFeedback } from "react-native";
 import React, { Component, useContext, useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { robotoMedium, robotoRegular } from "../lib/fonts";
 import SwipeableTabs from "react-native-swipe-tabs";
-import PropertyVerification from "../components/tabs/HomeTabs/PropertyVerification";
 import KycProcess from "../components/tabs/HomeTabs/KycProcess";
 import TabsLabel from "../components/TabsLabel";
 import ClientContext from "../context/ClientContext";
 import DueAmount from "../components/tabs/HistoryTabs/HistoryDueAmount";
+import HistoryPropertyVerification from "../components/tabs/HistoryTabs/HistoryPropertyVerification";
 
 const History = () => {
   const allClients = useContext(ClientContext)
@@ -20,8 +19,8 @@ const History = () => {
     },
     {
       name: "Property Verification",
-      component: PropertyVerification,
-      clients: allClients?.propertyClients
+      component: HistoryPropertyVerification,
+      clients: allClients?.historyPropertyClients
     },
     {
       name: "KYC Process",

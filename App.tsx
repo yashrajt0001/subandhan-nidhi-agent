@@ -17,6 +17,7 @@ import PreviousPayments from "./src/screens/Home/dueAmount/PreviousPayments";
 import {
   initialDueAmountClients,
   initialHistoryDueAmountClients,
+  initialHistoryPropertyClients,
   initialKycClients,
   initialOverdueClients,
   initialPropertyClients,
@@ -29,7 +30,9 @@ import CustomHeader from "./src/components/headers/CustomHeader";
 import RespondedClientDetailsScreen from "./src/screens/overdue/RespondedClientDetailsScreen";
 import UnrespondedClientDetailsScreen from "./src/screens/overdue/UnrespondedClientDetailsScreen";
 import History from "./src/screens/History";
-import ClientDetail from "./src/screens/History/DueAmount/ClientDetail";
+import HistoryDueAmountClientDetail from "./src/screens/History/DueAmount/ClientDetail";
+import HistoryPropertyVerification from "./src/components/tabs/HistoryTabs/HistoryPropertyVerification";
+import HistoryPropertyClientDetail from "./src/screens/History/PropertyVerification/ClientDetail";
 
 const App = () => {
   const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -92,11 +95,19 @@ const App = () => {
                 }}
               />
               <Stack.Screen
-                name="HistoryClientDetails"
-                component={ClientDetail}
+                name="HistoryDueAmountClientDetails"
+                component={HistoryDueAmountClientDetail}
                 // developmentonly
                 initialParams={{
                   user: initialHistoryDueAmountClients[0],
+                }}
+              />
+              <Stack.Screen
+                name="HistoryPropertyClientDetails"
+                component={HistoryPropertyClientDetail}
+                // developmentonly
+                initialParams={{
+                  user: initialHistoryPropertyClients[0],
                 }}
               />
             </Stack.Navigator>

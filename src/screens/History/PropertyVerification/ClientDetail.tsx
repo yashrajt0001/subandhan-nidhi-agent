@@ -8,9 +8,9 @@ import { StackScreenProps } from "@react-navigation/stack";
 import { RootStackParamList } from "../../../navigation";
 import icons from "../../../lib/icons";
 
-type HistoryDueAmountClientDetailsProps = StackScreenProps<RootStackParamList, 'HistoryDueAmountClientDetails'>
+type HistoryPropertyClientDetailsProps = StackScreenProps<RootStackParamList, 'HistoryPropertyClientDetails'>
 
-const HistoryDueAmountClientDetail = ({route}: HistoryDueAmountClientDetailsProps) => {
+const HistoryPropertyClientDetail = ({route}: HistoryPropertyClientDetailsProps) => {
   const {user} = route.params
   return (
     <SafeAreaView className="bg-white h-full px-4">
@@ -42,24 +42,6 @@ const HistoryDueAmountClientDetail = ({route}: HistoryDueAmountClientDetailsProp
           <Text style={robotoRegular} className="text-black">
             Phone No : {user.phone}
           </Text>
-          <Text style={robotoRegular} className="text-black">
-            Loan Type : {user.loanType}
-          </Text>
-          <Text style={robotoRegular} className="text-black">
-            Loan Amount : {user.loanAmount}
-          </Text>
-          <Text style={robotoRegular} className="text-black">
-            Paid Amount : {user.paidAmount}
-          </Text>
-          <Text style={robotoRegular} className="text-black">
-            Due Amount : {user.dueAmount}
-          </Text>
-          <Text style={robotoRegular} className="text-black">
-            Number of EMI's : {user.numberOfEmi}
-          </Text>
-          <Text style={robotoRegular} className="text-black">
-            Late Payments : {user.latePayments}
-          </Text>
           <View className="text-black flex-row justify-between items-center">
             <Text className="text-black" style={robotoRegular}>
               Status :
@@ -76,4 +58,4 @@ const HistoryDueAmountClientDetail = ({route}: HistoryDueAmountClientDetailsProp
   );
 };
 
-export default HistoryDueAmountClientDetail;
+export default HistoryPropertyClientDetail;

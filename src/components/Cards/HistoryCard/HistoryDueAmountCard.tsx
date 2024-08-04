@@ -19,7 +19,7 @@ const HistoryDueAmountCard = ({ user }: HistoryDueAmountCardProps) => {
       activeOpacity={0.9}
       className="p-2 bg-blueLight items-center flex-row justify-between rounded-lg shadow-sm shadow-black"
       onPress={() => {
-        navigation.navigate("HistoryClientDetails", { user });
+        navigation.navigate("HistoryDueAmountClientDetails", { user });
       }}
     >
       <View className="gap-2">

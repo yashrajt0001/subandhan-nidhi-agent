@@ -442,3 +442,30 @@ export const initialHistoryDueAmountClients: HistoryDueAmountClients = [
     status: false
   },
 ]
+
+export const initialHistoryPropertyClients: HistoryPropertyClients = [
+  {
+    customerId: '21898',
+    age: 20,
+    name: 'yahsraj',
+    phone: '80029828282',
+    propertyType: 'building',
+    status: true
+  },
+  {
+    customerId: '21898',
+    age: 20,
+    name: 'yahsraj',
+    phone: '80029828282',
+    propertyType: 'building',
+    status: false
+  },
+  {
+    customerId: '21898',
+    age: 20,
+    name: 'yahsraj',
+    phone: '80029828282',
+    propertyType: 'building',
+    status: true
+  }
+]

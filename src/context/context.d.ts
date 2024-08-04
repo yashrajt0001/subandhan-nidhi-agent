@@ -40,6 +40,17 @@ type PropertyClient = {
 
 type PropertyClients = PropertyClient[];
 
+type HistoryPropertyClient = {
+  customerId: string
+  name: string
+  phone: string
+  age: number
+  propertyType: 'building'
+  status: boolean
+}
+
+type HistoryPropertyClients = HistoryPropertyClient[]
+
 type KycVerifyClient = {
   name: string;
   image: string;
@@ -74,13 +85,6 @@ type PreviousPayment = {
 
 type PreviousPayments = PreviousPayment[];
 
-type ClientsType = {
-  dueAmountClients: DueAmountClients;
-  propertyClients: PropertyClients;
-  kycClients: KycClients;
-  overdueClients: OverdueClients;
-  historyDueAmountClients: HistoryDueAmountClients
-};
 
 type OverdueRespondedClient = {
   customerId: string;
@@ -117,3 +121,12 @@ type OverdueClients = {
   RespondedClients: OverdueRespondedClient[];
   UnrespondedClients: OverdueUnrespondedClient[];
 };
+
+  type ClientsType = {
+    dueAmountClients: DueAmountClients;
+    propertyClients: PropertyClients;
+    kycClients: KycClients;
+    overdueClients: OverdueClients;
+    historyDueAmountClients: HistoryDueAmountClients
+    historyPropertyClients: HistoryPropertyClients
+  };

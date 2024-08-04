@@ -3,20 +3,20 @@ import React from "react";
 import icons from "../../../lib/icons";
 import { robotoRegular } from "../../../lib/fonts";
 import { useNavigation } from "@react-navigation/native";
-import { HomeScreenNavigationProp } from "../../../navigation";
+import { HistoryScreenNavigationProp } from "../../../navigation";
 
-interface PropertyClientCardProps {
-  user: PropertyClient;
+interface HistoryPropertyClientCardProps {
+  user: HistoryPropertyClient;
 }
 
-const PropertyClientCard = ({ user }: PropertyClientCardProps) => {
-  const navigation = useNavigation<HomeScreenNavigationProp>();
+const HistoryPropertyClientCard = ({ user }: HistoryPropertyClientCardProps) => {
+  const navigation = useNavigation<HistoryScreenNavigationProp>();
   return (
     <TouchableOpacity
       activeOpacity={0.9}
-      className="py-4 px-2 bg-blueLight items-center flex-row justify-between rounded-lg shadow-sm shadow-black"
+      className="p-2 bg-blueLight items-center flex-row justify-between rounded-lg shadow-sm shadow-black"
       onPress={() => {
-        navigation.navigate("PropertyInformation", { user });
+        navigation.navigate("HistoryPropertyClientDetails", { user });
       }}
     >
       <View className="gap-2">
@@ -32,29 +32,17 @@ const PropertyClientCard = ({ user }: PropertyClientCardProps) => {
         <Text style={robotoRegular} className="text-black">
           Property Type : {user.propertyType}
         </Text>
-      </View>
-      <View
-        className="justify-between mr-4 py-2"
-        style={{ alignSelf: "stretch" }}
-      >
-        <TouchableOpacity activeOpacity={0.5}>
+        <View className="text-black flex-row justify-between w-full pr-6 items-center">
+          <Text className="text-black" style={robotoRegular}>Recovery Status :</Text>
           <Image
-            source={icons.PhoneCall}
-            className="w-6 h-6"
+            source={user.status ? icons.CheckCircle2 : icons.AlertCircle}
+            className="w-3 h-3"
             resizeMode="contain"
           />
-        </TouchableOpacity>
-        <View className="h-[1px] rounded-lg bg-[#3C3C3C]" />
-        <TouchableOpacity activeOpacity={0.5}>
-          <Image
-            source={icons.Location}
-            className="w-6 h-6"
-            resizeMode="contain"
-          />
-        </TouchableOpacity>
+        </View>
       </View>
     </TouchableOpacity>
   );
 };
 
-export default PropertyClientCard;
+export default HistoryPropertyClientCard;

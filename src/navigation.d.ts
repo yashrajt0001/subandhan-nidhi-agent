@@ -26,8 +26,11 @@ type RootStackParamList = {
     UnrespondedClientDetailsScreen: {
         user: OverdueUnrespondedClient
     }
-    HistoryClientDetails: {
+    HistoryDueAmountClientDetails: {
         user: HistoryDueAmountClient
+    }
+    HistoryPropertyClientDetails: {
+        user: HistoryPropertyClient
     }
 };
 
