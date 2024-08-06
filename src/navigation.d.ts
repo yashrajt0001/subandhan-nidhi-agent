@@ -32,6 +32,9 @@ type RootStackParamList = {
     HistoryPropertyClientDetails: {
         user: HistoryPropertyClient
     }
+    HistoryKycClientDetails: {
+        user: HistoryKycClient
+    }
 };
 
 type TabParamList = {

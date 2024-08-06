@@ -6,23 +6,24 @@ import { RootStackParamList } from "../../../navigation";
 import { robotoBold } from "../../../lib/fonts";
 import DocumentCard from "../../../components/Cards/HomeCard/DocumentCard";
 import KycVerifyClientCard from "../../../components/Cards/HomeCard/KycVerifyClientCard";
+import HistoryKycClientCard from "../../../components/Cards/HistoryCard/HistoryKycClientCard";
 
-type VerifiedDocumentsProps = StackScreenProps<
+type HistoryKycClientDetailProps = StackScreenProps<
   RootStackParamList,
-  "VerifiedDocuments"
+  "HistoryKycClientDetails"
 >;
 
-const VerifiedDocuments = ({ route }: VerifiedDocumentsProps) => {
+const HistoryKycClientDetail = ({ route }: HistoryKycClientDetailProps) => {
   const { user } = route.params;
   return (
     <SafeAreaView className="bg-white h-full px-4">
-      <CustomHeader name="Property Information" />
+      <CustomHeader name="Client Details" />
       <ScrollView showsVerticalScrollIndicator={false}>
         <View className="pb-10">
           <Text style={robotoBold} className="text-black my-2 text-base">
             User Details
           </Text>
-          <KycVerifyClientCard user={user} />
+          <HistoryKycClientCard user={user} />
           <Text style={robotoBold} className="text-black mt-6 mb-4 text-base">
             Uploaded Details
           </Text>
@@ -37,4 +38,4 @@ const VerifiedDocuments = ({ route }: VerifiedDocumentsProps) => {
   );
 };
 
-export default VerifiedDocuments;
+export default HistoryKycClientDetail;

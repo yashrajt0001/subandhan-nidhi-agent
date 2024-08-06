@@ -2,56 +2,25 @@ import { View, Text, FlatList } from "react-native";
 import React, { useState } from "react";
 import SwitchableButton from "../../ui/SwitchableButton";
 import { robotoBold } from "../../../lib/fonts";
-import KycVerifiedClientCard from "../../Cards/HistoryCard/KycVerifiedClientCard";
+import KycVerifiedClientCard from "../../Cards/HistoryCard/HistoryKycClientCard";
 import KycVerifyClientCard from "../../Cards/HomeCard/KycVerifyClientCard";
+import HistoryKycClientCard from "../../Cards/HistoryCard/HistoryKycClientCard";
 
 interface HistoryKycProcessProps {
-  clients?: KycClients;
+  clients?: HistoryKycClients;
 }
 
 const HistoryKycProcess = ({ clients: kycClients }: HistoryKycProcessProps) => {
-  const [activeTab, setActiveTab] = useState<"verified" | "verify">("verify");
   return (
     <View className="mr-8">
-      <View className="flex-row py-2">
-        <SwitchableButton
-          className="mr-6"
-          text="Verify Documents"
-          isActive={activeTab === "verify" ? true : false}
-          setter={() => setActiveTab("verify")}
-        />
-        <SwitchableButton
-          text="Verified Documents"
-          isActive={activeTab === "verified" ? true : false}
-          setter={() => setActiveTab("verified")}
-        />
-      </View>
-      {activeTab === "verify" ? (
-        kycClients?.verifyClients ? (
-          <FlatList
-            keyExtractor={(_, index) => index.toString()}
-            data={kycClients.verifyClients}
-            renderItem={({ item }) => <KycVerifyClientCard user={item} />}
-            showsVerticalScrollIndicator={false}
-            contentContainerStyle={{
-              paddingBottom: 170,
-              paddingTop: 10,
-              gap: 10,
-            }}
-          />
-        ) : (
-          <View className="items-center justify-center m-10">
-            <Text className="text-slate-400">No clients</Text>
-          </View>
-        )
-      ) : kycClients?.verifiedClients ? (
+      {kycClients ? (
         <FlatList
           keyExtractor={(_, index) => index.toString()}
-          data={kycClients.verifiedClients}
-          renderItem={({ item }) => <KycVerifiedClientCard user={item} />}
+          data={kycClients}
+          renderItem={({ item }) => <HistoryKycClientCard user={item} />}
           showsVerticalScrollIndicator={false}
           contentContainerStyle={{
-            paddingBottom: 170,
+            paddingBottom: 120,
             paddingTop: 10,
             gap: 10,
           }}

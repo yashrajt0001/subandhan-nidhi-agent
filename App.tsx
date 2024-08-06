@@ -11,12 +11,13 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import HomeHeader from "./src/components/headers/HomeHeader";
 import { RootStackParamList } from "./src/navigation";
 import ClientDueAmount from "./src/screens/Home/dueAmount/ClientDueAmount";
-import UserProvider from "./src/context/UserContext";
+import { AgentProvider } from "./src/context/AgentContext";
 import { ClientProvider } from "./src/context/ClientContext";
 import PreviousPayments from "./src/screens/Home/dueAmount/PreviousPayments";
 import {
   initialDueAmountClients,
   initialHistoryDueAmountClients,
+  initialHistoryKycClients,
   initialHistoryPropertyClients,
   initialKycClients,
   initialOverdueClients,
@@ -31,14 +32,15 @@ import RespondedClientDetailsScreen from "./src/screens/overdue/RespondedClientD
 import UnrespondedClientDetailsScreen from "./src/screens/overdue/UnrespondedClientDetailsScreen";
 import History from "./src/screens/History";
 import HistoryDueAmountClientDetail from "./src/screens/History/DueAmount/ClientDetail";
-import HistoryPropertyVerification from "./src/components/tabs/HistoryTabs/HistoryPropertyVerification";
 import HistoryPropertyClientDetail from "./src/screens/History/PropertyVerification/ClientDetail";
+import HistoryKycClientDetail from "./src/screens/History/KycProcess/HistoryKycClientDetail";
+import Profile from "./src/screens/Profile";
 
 const App = () => {
   const Stack = createNativeStackNavigator<RootStackParamList>();
   return (
     <SafeAreaProvider>
-      <UserProvider>
+      <AgentProvider>
         <ClientProvider>
           <StatusBar backgroundColor="#ffffff" barStyle="dark-content" />
           <NavigationContainer>
@@ -110,10 +112,18 @@ const App = () => {
                   user: initialHistoryPropertyClients[0],
                 }}
               />
+              <Stack.Screen
+                name="HistoryKycClientDetails"
+                component={HistoryKycClientDetail}
+                // developmentonly
+                initialParams={{
+                  user: initialHistoryKycClients[0],
+                }}
+              />
             </Stack.Navigator>
           </NavigationContainer>
         </ClientProvider>
-      </UserProvider>
+      </AgentProvider>
     </SafeAreaProvider>
   );
 };
@@ -183,7 +193,7 @@ const TabsLayout = () => {
     {
       name: "Profile",
       label: "Profile",
-      component: Home,
+      component: Profile,
       fillIcon: icons.UserFill,
       outlineIcon: icons.UserOutline,
     },
@@ -224,6 +234,7 @@ const TabsLayout = () => {
                   focused={focused}
                 />
               ),
+              unmountOnBlur: true,
             }}
           />
         );

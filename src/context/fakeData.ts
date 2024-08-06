@@ -390,82 +390,122 @@ export const initialOverdueClients: OverdueClients = {
 
 export const initialHistoryDueAmountClients: HistoryDueAmountClients = [
   {
-    customerId: '#112223',
+    customerId: "#112223",
     age: 21,
     dueAmount: 2000,
     latePayments: 4,
     loanAmount: 2000,
-    loanType: 'type',
-    name: 'yashraj',
+    loanType: "type",
+    name: "yashraj",
     numberOfEmi: 4,
     paidAmount: 200,
-    phone: '8955774776',
-    status: true
+    phone: "8955774776",
+    status: true,
   },
   {
-    customerId: '#112223',
+    customerId: "#112223",
     age: 21,
     dueAmount: 2000,
     latePayments: 4,
     loanAmount: 2000,
-    loanType: 'type',
-    name: 'yashraj',
+    loanType: "type",
+    name: "yashraj",
     numberOfEmi: 4,
     paidAmount: 200,
-    phone: '8955774776',
-    status: false
+    phone: "8955774776",
+    status: false,
   },
   {
-    customerId: '#112223',
+    customerId: "#112223",
     age: 21,
     dueAmount: 2000,
     latePayments: 4,
     loanAmount: 2000,
-    loanType: 'type',
-    name: 'yashraj',
+    loanType: "type",
+    name: "yashraj",
     numberOfEmi: 4,
     paidAmount: 200,
-    phone: '8955774776',
-    status: true
+    phone: "8955774776",
+    status: true,
   },
   {
-    customerId: '#112223',
+    customerId: "#112223",
     age: 21,
     dueAmount: 2000,
     latePayments: 4,
     loanAmount: 2000,
-    loanType: 'type',
-    name: 'yashraj',
+    loanType: "type",
+    name: "yashraj",
     numberOfEmi: 4,
     paidAmount: 200,
-    phone: '8955774776',
-    status: false
+    phone: "8955774776",
+    status: false,
   },
-]
+];
 
 export const initialHistoryPropertyClients: HistoryPropertyClients = [
   {
-    customerId: '21898',
+    customerId: "21898",
     age: 20,
-    name: 'yahsraj',
-    phone: '80029828282',
-    propertyType: 'building',
-    status: true
+    name: "yahsraj",
+    phone: "80029828282",
+    propertyType: "building",
+    status: true,
   },
   {
-    customerId: '21898',
+    customerId: "21898",
     age: 20,
-    name: 'yahsraj',
-    phone: '80029828282',
-    propertyType: 'building',
-    status: false
+    name: "yahsraj",
+    phone: "80029828282",
+    propertyType: "building",
+    status: false,
   },
   {
-    customerId: '21898',
+    customerId: "21898",
     age: 20,
-    name: 'yahsraj',
-    phone: '80029828282',
-    propertyType: 'building',
-    status: true
-  }
-]
+    name: "yahsraj",
+    phone: "80029828282",
+    propertyType: "building",
+    status: true,
+  },
+];
+
+export const initialHistoryKycClients: HistoryKycClients = [
+  {
+    address: "udaipur",
+    image:
+      "https://www.kevinashleyphotography.com/wp-content/uploads/2015/11/person.jpg",
+    age: 20,
+    email: "yeshrajteli12345@gmail.com",
+    name: "yashraj",
+    phone: "8955774776",
+    status: true,
+  },
+  {
+    address: "udaipur",
+    image:
+      "https://www.kevinashleyphotography.com/wp-content/uploads/2015/11/person.jpg",
+    age: 20,
+    email: "yeshrajteli12345@gmail.com",
+    name: "yashraj",
+    phone: "8955774776",
+    status: false,
+  },
+  {
+    address: "udaipur",
+    image:
+      "https://www.kevinashleyphotography.com/wp-content/uploads/2015/11/person.jpg",
+    age: 20,
+    email: "yeshrajteli12345@gmail.com",
+    name: "yashraj",
+    phone: "8955774776",
+    status: true,
+  },
+];
+
+export const agent: Agent = {
+  agentId: '6777',
+  email: 'yeshraj@gmail.co',
+  name: 'yash',
+  phone: '999999999'
+}

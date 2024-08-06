@@ -5,7 +5,6 @@ import { robotoRegular } from "../../../lib/fonts";
 import { useNavigation } from "@react-navigation/native";
 import {
   HistoryScreenNavigationProp,
-  HomeScreenNavigationProp,
 } from "../../../navigation";
 
 interface HistoryDueAmountCardProps {

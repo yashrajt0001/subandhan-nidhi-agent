@@ -1,6 +1,6 @@
 import { View, Text, FlatList } from "react-native";
 import React from "react";
-import HistoryPropertyClientCard from "../../Cards/HistoryCard/PropertyClientCard";
+import HistoryPropertyClientCard from "../../Cards/HistoryCard/HistoryPropertyClientCard";
 
 interface HistoryPropertyVerificationProps {
   clients?: HistoryPropertyClients;

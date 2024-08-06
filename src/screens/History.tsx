@@ -1,31 +1,31 @@
-import { View, Text, TouchableWithoutFeedback } from "react-native";
-import React, { Component, useContext, useState } from "react";
+import { View } from "react-native";
+import React, { useContext, useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import SwipeableTabs from "react-native-swipe-tabs";
-import KycProcess from "../components/tabs/HomeTabs/KycProcess";
 import TabsLabel from "../components/TabsLabel";
 import ClientContext from "../context/ClientContext";
-import DueAmount from "../components/tabs/HistoryTabs/HistoryDueAmount";
 import HistoryPropertyVerification from "../components/tabs/HistoryTabs/HistoryPropertyVerification";
+import HistoryKycProcess from "../components/tabs/HistoryTabs/HistoryKycProcess";
+import HistoryDueAmount from "../components/tabs/HistoryTabs/HistoryDueAmount";
 
 const History = () => {
-  const allClients = useContext(ClientContext)
+  const allClients = useContext(ClientContext);
   const [selectedTabIndex, setselectedTabIndex] = useState(0);
   const tabsItem = [
     {
       name: "Due Amount",
-      component: DueAmount,
-      clients: allClients?.historyDueAmountClients
+      component: HistoryDueAmount,
+      clients: allClients?.historyDueAmountClients,
     },
     {
       name: "Property Verification",
       component: HistoryPropertyVerification,
-      clients: allClients?.historyPropertyClients
+      clients: allClients?.historyPropertyClients,
     },
     {
       name: "KYC Process",
-      component: KycProcess,
-      clients: allClients?.kycClients
+      component: HistoryKycProcess,
+      clients: allClients?.historyKycClients,
     },
   ];
   return (
@@ -50,7 +50,7 @@ const History = () => {
       >
         {tabsItem.map((item, index) => {
           // @ts-ignore
-          return <item.component key={index} clients={item.clients}/>;
+          return <item.component key={index} clients={item.clients} />;
         })}
       </SwipeableTabs>
     </SafeAreaView>

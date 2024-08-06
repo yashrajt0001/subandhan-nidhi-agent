@@ -2,11 +2,11 @@ import { View, Text, FlatList } from "react-native";
 import React from "react";
 import HistoryDueAmountCard from "../../Cards/HistoryCard/HistoryDueAmountCard";
 
-interface DueAmountProps {
+interface HistoryDueAmountProps {
   clients?: HistoryDueAmountClients;
 }
 
-const DueAmount = ({ clients: dueAmountClients }: DueAmountProps) => {
+const HistoryDueAmount = ({ clients: dueAmountClients }: HistoryDueAmountProps) => {
   return (
     <View className="mr-8">
       {dueAmountClients ? (
@@ -30,4 +30,4 @@ const DueAmount = ({ clients: dueAmountClients }: DueAmountProps) => {
   );
 };
 
-export default DueAmount;
+export default HistoryDueAmount;

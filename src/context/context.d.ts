@@ -16,18 +16,18 @@ type DueAmountClients = DueAmountClient[];
 type HistoryDueAmountClient = {
   customerId: string;
   name: string;
-  age: number,
+  age: number;
   phone: string;
   loanType: "type";
-  loanAmount: number
+  loanAmount: number;
   paidAmount: number;
   dueAmount: number;
-  numberOfEmi: number
-  latePayments: number
-  status: boolean
+  numberOfEmi: number;
+  latePayments: number;
+  status: boolean;
 };
 
-type HistoryDueAmountClients = HistoryDueAmountClient[]
+type HistoryDueAmountClients = HistoryDueAmountClient[];
 
 type PropertyClient = {
   customerId: string;
@@ -41,15 +41,15 @@ type PropertyClient = {
 type PropertyClients = PropertyClient[];
 
 type HistoryPropertyClient = {
-  customerId: string
-  name: string
-  phone: string
-  age: number
-  propertyType: 'building'
-  status: boolean
-}
+  customerId: string;
+  name: string;
+  phone: string;
+  age: number;
+  propertyType: "building";
+  status: boolean;
+};
 
-type HistoryPropertyClients = HistoryPropertyClient[]
+type HistoryPropertyClients = HistoryPropertyClient[];
 
 type KycVerifyClient = {
   name: string;
@@ -76,6 +76,18 @@ type KycClients = {
   verifyClients: KycVerifyClient[];
 };
 
+type HistoryKycClient = {
+  name: string;
+  image: string
+  age: number;
+  phone: string;
+  email: string;
+  address: string;
+  status: boolean;
+};
+
+type HistoryKycClients = HistoryKycClient[]
+
 type PreviousPayment = {
   amount: number;
   status: "Paid" | "Unpaid";
@@ -84,7 +96,6 @@ type PreviousPayment = {
 };
 
 type PreviousPayments = PreviousPayment[];
-
 
 type OverdueRespondedClient = {
   customerId: string;
@@ -122,11 +133,19 @@ type OverdueClients = {
   UnrespondedClients: OverdueUnrespondedClient[];
 };
 
-  type ClientsType = {
-    dueAmountClients: DueAmountClients;
-    propertyClients: PropertyClients;
-    kycClients: KycClients;
-    overdueClients: OverdueClients;
-    historyDueAmountClients: HistoryDueAmountClients
-    historyPropertyClients: HistoryPropertyClients
-  };
+type ClientsType = {
+  dueAmountClients: DueAmountClients;
+  propertyClients: PropertyClients;
+  kycClients: KycClients;
+  overdueClients: OverdueClients;
+  historyDueAmountClients: HistoryDueAmountClients;
+  historyPropertyClients: HistoryPropertyClients;
+  historyKycClients: HistoryKycClients
+};
+
+type Agent = {
+  agentId: string
+  name: string
+  email: string
+  phone: string 
+}

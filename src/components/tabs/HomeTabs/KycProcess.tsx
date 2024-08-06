@@ -2,8 +2,8 @@ import { View, Text, FlatList } from "react-native";
 import React, { useState } from "react";
 import SwitchableButton from "../../ui/SwitchableButton";
 import { robotoBold } from "../../../lib/fonts";
-import KycVerifiedClientCard from "../../Cards/HistoryCard/KycVerifiedClientCard";
 import KycVerifyClientCard from "../../Cards/HomeCard/KycVerifyClientCard";
+import KycVerifiedClientCard from "../../Cards/HomeCard/KycVerifiedClientCard";
 
 interface KycProcessProps {
   clients?: KycClients;

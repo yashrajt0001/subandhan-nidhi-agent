@@ -11,7 +11,7 @@ import ClientContext from "../context/ClientContext";
 
 const Home = () => {
   const allClients = useContext(ClientContext)
-  const [selectedTabIndex, setselectedTabIndex] = useState(0);
+  const [selectedHomeTabIndex, setselectedHomeTabIndex] = useState(0);
   const tabsItem = [
     {
       name: "Due Amount",
@@ -47,16 +47,16 @@ const Home = () => {
               name={item.name}
               index={index}
               key={index}
-              selectedTabIndex={selectedTabIndex}
-              setter={setselectedTabIndex}
+              selectedTabIndex={selectedHomeTabIndex}
+              setter={setselectedHomeTabIndex}
             />
           );
         })}
       </View>
 
       <SwipeableTabs
-        onSwipe={(x) => setselectedTabIndex(x)}
-        selectedIndex={selectedTabIndex}
+        onSwipe={(x) => setselectedHomeTabIndex(x)}
+        selectedIndex={selectedHomeTabIndex}
       >
         {tabsItem.map((item, index) => {
           // @ts-ignore
