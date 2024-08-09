@@ -509,3 +509,189 @@ export const agent: Agent = {
   name: 'yash',
   phone: '999999999'
 }
+
+export const initialPendingDueAmountClients: PendingDueAmountClients = [
+  {
+    customerId: '89sius',
+    dueAmount: 89908,
+    dueDays: 8,
+    loan: 'type',
+    name: 'yashraj',
+    paidAmount: 889,
+    phone: '8955774776',
+    totalAmount: 98239,
+    totalLateCharges: 89,
+    previousPayments: [
+      {
+        amount: 89989,
+        date: '12/4/23',
+        dueDays: 3,
+        status: 'Paid'
+      },
+      {
+        amount: 89989,
+        date: '12/4/23',
+        dueDays: 3,
+        status: 'Unpaid'
+      },
+      {
+        amount: 89989,
+        date: '12/4/23',
+        dueDays: 3,
+        status: 'Paid'
+      },
+    ]
+  },
+  {
+    customerId: '89sius',
+    dueAmount: 89908,
+    dueDays: 8,
+    loan: 'type',
+    name: 'yashraj',
+    paidAmount: 889,
+    phone: '8955774776',
+    totalAmount: 98239,
+    totalLateCharges: 89,
+    previousPayments: [
+      {
+        amount: 89989,
+        date: '12/4/23',
+        dueDays: 3,
+        status: 'Paid'
+      },
+      {
+        amount: 89989,
+        date: '12/4/23',
+        dueDays: 3,
+        status: 'Unpaid'
+      },
+      {
+        amount: 89989,
+        date: '12/4/23',
+        dueDays: 3,
+        status: 'Paid'
+      },
+    ]
+  },
+  {
+    customerId: '89sius',
+    dueAmount: 89908,
+    dueDays: 8,
+    loan: 'type',
+    name: 'yashraj',
+    paidAmount: 889,
+    phone: '8955774776',
+    totalAmount: 98239,
+    totalLateCharges: 89,
+    previousPayments: [
+      {
+        amount: 89989,
+        date: '12/4/23',
+        dueDays: 3,
+        status: 'Paid'
+      },
+      {
+        amount: 89989,
+        date: '12/4/23',
+        dueDays: 3,
+        status: 'Unpaid'
+      },
+      {
+        amount: 89989,
+        date: '12/4/23',
+        dueDays: 3,
+        status: 'Paid'
+      },
+    ]
+  },
+] 
+
+export const initialPendingPropertyClients: PendingPropertyClients = [
+  {
+    customerId: 'sjcb',
+    name: 'yashraj',
+    phone: '8955774776',
+    propertyAddress: 'skjcdsc',
+    propertyType: 'building',
+    propertyValue: 98090
+  },
+  {
+    customerId: 'sjcb',
+    name: 'yashraj',
+    phone: '8955774776',
+    propertyAddress: 'skjcdsc',
+    propertyType: 'building',
+    propertyValue: 98090
+  },
+  {
+    customerId: 'sjcb',
+    name: 'yashraj',
+    phone: '8955774776',
+    propertyAddress: 'skjcdsc',
+    propertyType: 'building',
+    propertyValue: 98090
+  },
+  {
+    customerId: 'sjcb',
+    name: 'yashraj',
+    phone: '8955774776',
+    propertyAddress: 'skjcdsc',
+    propertyType: 'building',
+    propertyValue: 98090
+  },
+]
+
+export const initialPendingKycClients: PendingKycClients = {
+  pendingKycVerifiedClients: [
+    {
+      address: 'scsdc',
+      age: 48,
+      email: 'yshjs@jsjs.com',
+      name: 'abc',
+      phone: '23338999990',
+      zoomMeetTime: new Date()
+    },
+    {
+      address: 'scsdc',
+      age: 48,
+      email: 'yshjs@jsjs.com',
+      name: 'abc',
+      phone: '23338999990',
+      zoomMeetTime: new Date()
+    },
+  ],
+  pendingKycVerifyClients: [
+    {
+      address: 'jhsavjsc',
+      age: 17,
+      dateOfRequest: new Date(),
+      email: 'abcxyz@gmail.com',
+      name: 'yashraj',
+      phone: '8955774776'
+    },
+    {
+      address: 'jhsavjsc',
+      age: 17,
+      dateOfRequest: new Date(),
+      email: 'abcxyz@gmail.com',
+      name: 'yashraj',
+      phone: '8955774776'
+    },
+    {
+      address: 'jhsavjsc',
+      age: 17,
+      dateOfRequest: new Date(),
+      email: 'abcxyz@gmail.com',
+      name: 'yashraj',
+      phone: '8955774776'
+    },
+    {
+      address: 'jhsavjsc',
+      age: 17,
+      dateOfRequest: new Date(),
+      email: 'abcxyz@gmail.com',
+      name: 'yashraj',
+      phone: '8955774776'
+    },
+  ]
+}

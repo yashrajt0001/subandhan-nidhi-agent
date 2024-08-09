@@ -35,6 +35,7 @@ import HistoryDueAmountClientDetail from "./src/screens/History/DueAmount/Client
 import HistoryPropertyClientDetail from "./src/screens/History/PropertyVerification/ClientDetail";
 import HistoryKycClientDetail from "./src/screens/History/KycProcess/HistoryKycClientDetail";
 import Profile from "./src/screens/Profile";
+import Pending from "./src/screens/Pending";
 
 const App = () => {
   const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -177,7 +178,7 @@ const TabsLayout = () => {
     {
       name: "Pending",
       label: "Pending's",
-      component: Home,
+      component: Pending,
       search: true,
       fillIcon: icons.PendingFill,
       outlineIcon: icons.PendingOutline,

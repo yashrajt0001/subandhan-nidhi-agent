@@ -26,6 +26,9 @@ const KycProcess = ({ clients: kycClients }: KycProcessProps) => {
           setter={() => setActiveTab("verified")}
         />
       </View>
+      <Text className="text-black mt-2 px-2 pb-2" style={robotoBold}>
+        User Details
+      </Text>
       {activeTab === "verify" ? (
         kycClients?.verifyClients ? (
           <FlatList
@@ -34,7 +37,7 @@ const KycProcess = ({ clients: kycClients }: KycProcessProps) => {
             renderItem={({ item }) => <KycVerifyClientCard user={item} />}
             showsVerticalScrollIndicator={false}
             contentContainerStyle={{
-              paddingBottom: 170,
+              paddingBottom: 200,
               paddingTop: 10,
               gap: 10,
             }}
@@ -51,8 +54,8 @@ const KycProcess = ({ clients: kycClients }: KycProcessProps) => {
           renderItem={({ item }) => <KycVerifiedClientCard user={item} />}
           showsVerticalScrollIndicator={false}
           contentContainerStyle={{
-            paddingBottom: 170,
-            paddingTop: 10,
+            paddingBottom: 200,
+            paddingTop: 2,
             gap: 10,
           }}
         />
@@ -61,9 +64,6 @@ const KycProcess = ({ clients: kycClients }: KycProcessProps) => {
           <Text className="text-slate-400">No clients</Text>
         </View>
       )}
-      <Text className="text-black mt-4" style={robotoBold}>
-        User Details
-      </Text>
     </View>
   );
 };

@@ -28,7 +28,9 @@ const SwitchableButton = ({
       onPress={setter}
       className={`p-2 ${filled ? (rightRounded && "rounded-r-lg") || (leftRounded && "rounded-l-lg") : "rounded-l-full rounded-r-full"} ${filled ? (isActive ? "bg-bluePrimary" : "bg-blueLight") : isActive ? "bg-blueLight" : "bg-[#f5f5f5]"}`}
     >
-      <Text className={`text-center ${isActive ? "text-white" : "text-bluePrimary"}`}>
+      <Text
+        className={`text-center ${filled ? (isActive ? "text-white" : "text-bluePrimary") : isActive ? "text-bluePrimary" : "text-[#757575]"}`}
+      >
         {text}
       </Text>
     </TouchableOpacity>

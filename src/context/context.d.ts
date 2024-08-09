@@ -11,6 +11,8 @@ type DueAmountClient = {
   previousPayments: PreviousPayments;
 };
 
+type PreviousPayments = PreviousPayment[];
+
 type DueAmountClients = DueAmountClient[];
 
 type HistoryDueAmountClient = {
@@ -88,6 +90,32 @@ type HistoryKycClient = {
 
 type HistoryKycClients = HistoryKycClient[]
 
+type PendingDueAmountClient = {
+  customerId: string
+  name: string
+  phone: string
+  loan: 'type'
+  totalAmount: number
+  paidAmount: number
+  dueAmount: number
+  dueDays: number
+  totalLateCharges: number
+  previousPayments: PreviousPayments
+}
+
+type PendingDueAmountClients = PendingDueAmountClient[]
+
+type PendingPropertyClient = {
+  customerId: string
+  name: string
+  phone: string
+  propertyType: 'building'
+  propertyAddress: string
+  propertyValue: number
+}
+
+type PendingPropertyClients = PendingPropertyClient[]
+
 type PreviousPayment = {
   amount: number;
   status: "Paid" | "Unpaid";
@@ -95,7 +123,29 @@ type PreviousPayment = {
   dueDays: number;
 };
 
-type PreviousPayments = PreviousPayment[];
+type PendingKycVerifyClient = {
+  name: string
+  age: number
+  phone: string
+  email: string
+  address: string
+  dateOfRequest: date
+}
+
+type PendingKycVerifiedClient = {
+  name: string
+  age: number
+  phone: string
+  email: string
+  address: string
+  zoomMeetTime: date
+}
+
+type PendingKycClients = {
+  pendingKycVerifyClients: PendingKycVerifyClient[]
+  pendingKycVerifiedClients: PendingKycVerifiedClient[]
+}
+
 
 type OverdueRespondedClient = {
   customerId: string;
@@ -141,6 +191,9 @@ type ClientsType = {
   historyDueAmountClients: HistoryDueAmountClients;
   historyPropertyClients: HistoryPropertyClients;
   historyKycClients: HistoryKycClients
+  pendingDueAmountClients: PendingDueAmountClients
+  pendingKycClients: PendingKycClients
+  pendingPropertyClients: PendingPropertyClients
 };
 
 type Agent = {

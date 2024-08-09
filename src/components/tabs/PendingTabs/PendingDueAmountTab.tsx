@@ -2,17 +2,17 @@ import { View, Text, FlatList } from "react-native";
 import React from "react";
 import DueAmountCard from "../../DueAmountCard";
 
-interface DueAmountProps {
-  clients?: PendingDueAmountClients;
+interface PendingDueAmountTabProps {
+  clients?: DueAmountClients;
 }
 
-const DueAmount = ({ clients: dueAmountClients }: DueAmountProps) => {
+const PendingDueAmountTab = ({ clients: pendingDueAmountClients }: PendingDueAmountTabProps) => {
   return (
     <View className="mr-8">
-      {dueAmountClients ? (
+      {pendingDueAmountClients ? (
         <FlatList
-          keyExtractor={(item, index) => index.toString()}
-          data={dueAmountClients}
+          keyExtractor={(_, index) => index.toString()}
+          data={pendingDueAmountClients}
           renderItem={({ item }) => <DueAmountCard user={item} />}
           showsVerticalScrollIndicator={false}
           contentContainerStyle={{
@@ -30,4 +30,4 @@ const DueAmount = ({ clients: dueAmountClients }: DueAmountProps) => {
   );
 };
 
-export default DueAmount;
+export default PendingDueAmountTab;

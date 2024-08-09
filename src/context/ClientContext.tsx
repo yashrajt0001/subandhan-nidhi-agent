@@ -6,6 +6,9 @@ import {
   initialHistoryPropertyClients,
   initialKycClients,
   initialOverdueClients,
+  initialPendingDueAmountClients,
+  initialPendingKycClients,
+  initialPendingPropertyClients,
   initialPropertyClients,
 } from "./fakeData";
 
@@ -29,6 +32,15 @@ export const ClientProvider = ({ children }: { children: React.ReactNode }) => {
   const [historyKycClients, setHistoryKycClients] = useState<HistoryKycClients>(
     initialHistoryKycClients
   );
+  const [pendingDueAmountClients, setPendingDueAmountClients] = useState<PendingDueAmountClients>(
+    initialPendingDueAmountClients
+  );
+  const [pendingKycClients, setPendingKycClients] = useState<PendingKycClients>(
+    initialPendingKycClients
+  );
+  const [pendingPropertyClients, setPendingPropertyClients] = useState<PendingPropertyClients>(
+    initialPendingPropertyClients
+  );
 
   return (
     <ClientContext.Provider
@@ -40,6 +52,9 @@ export const ClientProvider = ({ children }: { children: React.ReactNode }) => {
         historyDueAmountClients,
         historyPropertyClients,
         historyKycClients,
+        pendingDueAmountClients,
+        pendingKycClients,
+        pendingPropertyClients
       }}
     >
       {children}

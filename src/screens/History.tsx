@@ -8,6 +8,7 @@ import HistoryPropertyVerification from "../components/tabs/HistoryTabs/HistoryP
 import HistoryKycProcess from "../components/tabs/HistoryTabs/HistoryKycProcess";
 import HistoryDueAmount from "../components/tabs/HistoryTabs/HistoryDueAmount";
 
+
 const History = () => {
   const allClients = useContext(ClientContext);
   const [selectedTabIndex, setselectedTabIndex] = useState(0);
