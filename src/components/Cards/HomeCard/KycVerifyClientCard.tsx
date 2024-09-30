@@ -10,6 +10,7 @@ interface KycVerifyClientCardProps {
 
 const KycVerifyClientCard = ({ user }: KycVerifyClientCardProps) => {
   const navigation = useNavigation<HomeScreenNavigationProp>();
+  console.log(user.zoomMeetTime)
   return (
     <TouchableOpacity
       activeOpacity={0.5}
@@ -32,10 +33,10 @@ const KycVerifyClientCard = ({ user }: KycVerifyClientCardProps) => {
         <Text style={robotoRegular} className="text-black">
           Address : {user.address}
         </Text>
-        <Text style={robotoRegular} className="text-black">
+        {/* <Text style={robotoRegular} className="text-black">
           Zoom Meet Time : {user.zoomMeetTime.getHours()}:
           {user.zoomMeetTime.getMinutes()}
-        </Text>
+        </Text> */}
       </View>
       <Image
         source={{ uri: user.image }}

@@ -11,6 +11,7 @@ import KycProcess from '../components/tabs/HomeTabs/KycProcess';
 const Pending = () => {
     const allClients = useContext(ClientContext);
   const [selectedTabIndex, setselectedTabIndex] = useState(0);
+  console.log(allClients?.pendingKycClients)
   const tabsItem = [
     {
       name: "Due Amount",

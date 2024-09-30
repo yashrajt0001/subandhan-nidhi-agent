@@ -2,8 +2,11 @@ import { BottomTabNavigationProp } from "@react-navigation/bottom-tabs";
 import { CompositeNavigationProp, NavigatorScreenParams } from "@react-navigation/native";
 import { StackNavigationProp } from "@react-navigation/stack";
 
-type RootStackParamList = {
+type AuthStackParamList = {
     Login: undefined
+};
+
+type AppStackParamList = {
     MainMenu: NavigatorScreenParams<TabParamList>
     ClientDueAmount: {
         user: DueAmountClient
@@ -35,7 +38,7 @@ type RootStackParamList = {
     HistoryKycClientDetails: {
         user: HistoryKycClient
     }
-};
+}
 
 type TabParamList = {
     Home: undefined,

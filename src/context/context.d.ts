@@ -142,8 +142,8 @@ type PendingKycVerifiedClient = {
 }
 
 type PendingKycClients = {
-  pendingKycVerifyClients: PendingKycVerifyClient[]
-  pendingKycVerifiedClients: PendingKycVerifiedClient[]
+  verifiedClients: PendingKycVerifiedClient[]
+  verifyClients: PendingKycVerifyClient[]
 }
 
 
@@ -201,4 +201,5 @@ type Agent = {
   name: string
   email: string
   phone: string 
+  profile: string
 }

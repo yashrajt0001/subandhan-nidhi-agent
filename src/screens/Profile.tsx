@@ -23,7 +23,7 @@ const Profile = () => {
             style={{ zIndex: 100 }}
           >
             <Image
-              source={Logo}
+              src={agent.profile}
               className="w-[120px] h-[120px] rounded-full"
               resizeMode="contain"
             />

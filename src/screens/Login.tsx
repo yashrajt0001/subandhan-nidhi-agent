@@ -2,7 +2,6 @@ import {
   View,
   Text,
   Image,
-  TextInput,
   Keyboard,
   TouchableWithoutFeedback,
 } from "react-native";
@@ -13,21 +12,18 @@ import { Input } from "../components/ui/Input";
 import { CustomButton } from "../components/ui/CustomButton";
 import {robotoMedium} from '../lib/fonts'
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
+import { useAuth } from "../context/Auth";
 
 const Login = ({navigation}: NativeStackScreenProps<any, any>) => {
-  const [userId, setUserId] = useState("");
+  const [userId, setUserId] = useState("91394774");
+  const [password, setPassword] = useState("XJZwNDyOVrWr8q5");
 
-  const onchangeText = (text: string) => {
-    setUserId(text);
-  };
+  const {signIn} = useAuth()
 
   const handleDismissKeyboard = () => {
     Keyboard.dismiss();
   };
 
-  const handlePress = ()=>{
-    navigation.navigate('MainMenu')
-  }
   return (
     <TouchableWithoutFeedback onPress={handleDismissKeyboard}>
       <SafeAreaView className="bg-white h-full px-4 py-8 flex justify-between">
@@ -54,7 +50,7 @@ const Login = ({navigation}: NativeStackScreenProps<any, any>) => {
               placeholder="Enter Your UserID"
               placeholderTextColor="#0166E4"
               value={userId}
-              onchangeText={onchangeText}
+              onchangeText={(text)=> {setUserId(text); console.log(text)}}
             />
             <Input
               style={{ fontFamily: "Roboto", fontWeight: "500" }}
@@ -63,8 +59,8 @@ const Login = ({navigation}: NativeStackScreenProps<any, any>) => {
               labelClasses="font-medium text-blackPrimary"
               placeholder="Enter Password"
               placeholderTextColor="#0166E4"
-              value={userId}
-              onchangeText={onchangeText}
+              value={password}
+              onchangeText={(text)=> setPassword(text)}
             />
           </View>
           <View>
@@ -79,7 +75,7 @@ const Login = ({navigation}: NativeStackScreenProps<any, any>) => {
           </View>
         </View>
         <View className="">
-          <CustomButton onPress={handlePress} title="Log in" theme='default' textColor='white' textClasses="text-[17px]" textStyle={robotoMedium}/>
+          <CustomButton onPress={()=> signIn(userId, password)} title="Log in" theme='default' textColor='white' textClasses="text-[17px]" textStyle={robotoMedium}/>
         </View>
       </SafeAreaView>
     </TouchableWithoutFeedback>

@@ -504,10 +504,11 @@ export const initialHistoryKycClients: HistoryKycClients = [
 ];
 
 export const agent: Agent = {
-  agentId: '6777',
-  email: 'yeshraj@gmail.co',
-  name: 'yash',
-  phone: '999999999'
+  agentId: '',
+  email: '',
+  name: '',
+  phone: '',
+  profile: ''
 }
 
 export const initialPendingDueAmountClients: PendingDueAmountClients = [
@@ -642,7 +643,7 @@ export const initialPendingPropertyClients: PendingPropertyClients = [
 ]
 
 export const initialPendingKycClients: PendingKycClients = {
-  pendingKycVerifiedClients: [
+  verifiedClients: [
     {
       address: 'scsdc',
       age: 48,
@@ -660,7 +661,7 @@ export const initialPendingKycClients: PendingKycClients = {
       zoomMeetTime: new Date()
     },
   ],
-  pendingKycVerifyClients: [
+  verifyClients: [
     {
       address: 'jhsavjsc',
       age: 17,
