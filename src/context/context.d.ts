@@ -1,4 +1,16 @@
-type DueAmountClient = {
+type DueLoanClient = {
+  Identifier: string;
+  Type: string;
+  Penalty: boolean
+  Completed: number
+  Emi: number
+  Installment: date
+  Amount: number;
+  Transactions: PreviousPayments;
+};
+type DueLoanClients = DueLoanClient[];
+
+type DueSchemeClient = {
   customerId: string;
   name: string;
   phone: string;
@@ -9,11 +21,9 @@ type DueAmountClient = {
   dueDays: number;
   totalLateCharges: number;
   previousPayments: PreviousPayments;
-};
+}
+type DueSchemeClients = DueSchemeClient[];
 
-type PreviousPayments = PreviousPayment[];
-
-type DueAmountClients = DueAmountClient[];
 
 type HistoryDueAmountClient = {
   customerId: string;
@@ -90,7 +100,7 @@ type HistoryKycClient = {
 
 type HistoryKycClients = HistoryKycClient[]
 
-type PendingDueAmountClient = {
+type PendingDueLoanClient = {
   customerId: string
   name: string
   phone: string
@@ -122,6 +132,7 @@ type PreviousPayment = {
   date: string;
   dueDays: number;
 };
+type PreviousPayments = PreviousPayment[];
 
 type PendingKycVerifyClient = {
   name: string
@@ -184,16 +195,17 @@ type OverdueClients = {
 };
 
 type ClientsType = {
-  dueAmountClients: DueAmountClients;
-  propertyClients: PropertyClients;
-  kycClients: KycClients;
-  overdueClients: OverdueClients;
-  historyDueAmountClients: HistoryDueAmountClients;
-  historyPropertyClients: HistoryPropertyClients;
-  historyKycClients: HistoryKycClients
-  pendingDueAmountClients: PendingDueAmountClients
-  pendingKycClients: PendingKycClients
-  pendingPropertyClients: PendingPropertyClients
+  dueLoanClients: DueLoanClients | null;
+  dueSchemeClients: DueSchemeClients | null;
+  propertyClients: PropertyClients | null;
+  kycClients: KycClients | null;
+  overdueClients: OverdueClients | null;
+  historyDueAmountClients: HistoryDueAmountClients | null;
+  historyPropertyClients: HistoryPropertyClients | null;
+  historyKycClients: HistoryKycClients | null
+  pendingDueAmountClients: PendingDueAmountClients | null
+  pendingKycClients: PendingKycClients | null
+  pendingPropertyClients: PendingPropertyClients | null
 };
 
 type Agent = {

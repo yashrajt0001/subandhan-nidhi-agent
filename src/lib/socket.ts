@@ -1,20 +1,19 @@
-import { io } from "socket.io-client";
-import { SOCKET_HOST } from "../../env";
-import AsyncStorage from "@react-native-async-storage/async-storage";
-import { useEffect, useState } from "react";
+import { io, Socket } from 'socket.io-client';
+import { SOCKET_HOST } from '../../env';
 
-const socket = io(SOCKET_HOST);
-const [initialized, setInitialized] = useState(false);
+let socket: Socket | null = null;
 
-async function initializeSocket() {
-  const storedUserId = await AsyncStorage.getItem("userId");
-  socket.on("connect", () => {
-    console.log("Socket connected");
-    socket.emit("EAADB0027AD4AD504A1AA179270D6CED", {
-      data: { Identifier: storedUserId },
-    });
-  });
-  setInitialized(true);
-}
+export const connectSocket = (): Socket => {
+  if (!socket) {
+    socket = io(SOCKET_HOST);
+    console.log('socket initialized')
+  }
+  return socket;
+};
 
-export default socket;
+export const disconnectSocket = () => {
+  if (socket) {
+    socket.disconnect();
+    socket = null;
+  }
+};

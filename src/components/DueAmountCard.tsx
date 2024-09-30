@@ -1,19 +1,12 @@
-import {
-  View,
-  Text,
-  Image,
-  TouchableOpacity,
-} from "react-native";
+import { View, Text, Image, TouchableOpacity } from "react-native";
 import React from "react";
 import icons from "../lib/icons";
 import { robotoRegular } from "../lib/fonts";
 import { useNavigation } from "@react-navigation/native";
-import {
-  HomeScreenNavigationProp,
-} from "../navigation";
+import { HomeScreenNavigationProp } from "../navigation";
 
 interface DueAmountCardProps {
-  user: DueAmountClient;
+  user: DueLoanClient;
 }
 
 const DueAmountCard = ({ user }: DueAmountCardProps) => {
@@ -28,16 +21,16 @@ const DueAmountCard = ({ user }: DueAmountCardProps) => {
     >
       <View className="gap-2">
         <Text style={robotoRegular} className="text-black">
-          Customer ID :{user.customerId}
+          Customer ID :{user.Identifier}
         </Text>
         <Text style={robotoRegular} className="text-black">
-          Name : {user.name}
+          Name :
         </Text>
         <Text style={robotoRegular} className="text-black">
-          Phone No : {user.phone}
+          Phone No :
         </Text>
         <Text style={robotoRegular} className="text-black">
-          Due Amount : {user.dueAmount}
+          Due Amount : {user.Amount - user.Completed * user.Emi}
         </Text>
       </View>
       <View

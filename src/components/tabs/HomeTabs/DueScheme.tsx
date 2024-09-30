@@ -2,17 +2,17 @@ import { View, Text, FlatList } from "react-native";
 import React from "react";
 import DueAmountCard from "../../DueAmountCard";
 
-interface DueAmountProps {
-  clients?: PendingDueAmountClients;
+interface DueLoanProps {
+  clients?: DueLoanClients;
 }
 
-const DueAmount = ({ clients: dueAmountClients }: DueAmountProps) => {
+const DueScheme = ({ clients: dueLoanClients }: DueLoanProps) => {
   return (
     <View className="mr-8">
-      {dueAmountClients ? (
+      {dueLoanClients ? (
         <FlatList
           keyExtractor={(item, index) => index.toString()}
-          data={dueAmountClients}
+          data={dueLoanClients}
           renderItem={({ item }) => <DueAmountCard user={item} />}
           showsVerticalScrollIndicator={false}
           contentContainerStyle={{
@@ -30,4 +30,4 @@ const DueAmount = ({ clients: dueAmountClients }: DueAmountProps) => {
   );
 };
 
-export default DueAmount;
+export default DueScheme;

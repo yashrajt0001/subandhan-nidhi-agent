@@ -13,6 +13,8 @@ const Profile = () => {
     "verifications" | "recoveries" | "amounts"
   >("verifications");
 
+  console.log(agent)
+
   return (
     <SafeAreaView className="bg-white h-full px-4">
       <ScrollView showsVerticalScrollIndicator={false}>
@@ -23,7 +25,7 @@ const Profile = () => {
             style={{ zIndex: 100 }}
           >
             <Image
-              src={agent.profile}
+              src={agent?.profile}
               className="w-[120px] h-[120px] rounded-full"
               resizeMode="contain"
             />
@@ -31,16 +33,16 @@ const Profile = () => {
         </View>
         <View className="gap-y-2 bg-skyBlue px-4 py-2 rounded-lg mt-24 mb-4">
           <Text style={robotoRegular} className="text-black text-base">
-            Agent ID :{agent.agentId}
+            Agent ID :{agent?.agentId}
           </Text>
           <Text style={robotoRegular} className="text-black text-base">
-            Name : {agent.name}
+            Name : {agent?.name}
           </Text>
           <Text style={robotoRegular} className="text-black text-base">
-            E-mail : {agent.email}
+            E-mail : {agent?.email}
           </Text>
           <Text style={robotoRegular} className="text-black text-base">
-            Phone No : {agent.phone}
+            Phone No : {agent?.phone}
           </Text>
         </View>
         <Text className="text-base text-black p-2" style={robotoMedium}>

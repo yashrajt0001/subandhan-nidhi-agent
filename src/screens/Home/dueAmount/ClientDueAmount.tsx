@@ -1,7 +1,7 @@
 import { View, Text, ScrollView } from "react-native";
 import React from "react";
 import type { StackScreenProps } from "@react-navigation/stack";
-import { RootStackParamList } from "../../../navigation";
+import { AppStackParamList } from "../../../navigation";
 import { SafeAreaView } from "react-native-safe-area-context";
 import CustomHeader from "../../../components/headers/CustomHeader";
 import { robotoMedium } from "../../../lib/fonts";
@@ -11,7 +11,7 @@ import { CustomButton } from "../../../components/ui/CustomButton";
 import ClientDetails from "../../../components/clientDetails/DueAmountClientDetails";
 
 type ClientDueAmountProps = StackScreenProps<
-  RootStackParamList,
+  AppStackParamList,
   "ClientDueAmount"
 >;
 

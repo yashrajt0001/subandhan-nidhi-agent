@@ -1,48 +1,58 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
-import { agent as Agent } from "./fakeData";
-import socket from "../lib/socket";
-console.log(socket)
-const AgentContext = createContext<Agent>(Agent);
+
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { useSocket } from "../lib/useSocket";
+
+const AgentContext = createContext<Agent | null>(null);
 
 export const AgentProvider = ({ children }: { children: React.ReactNode }) => {
-  const [agent, setAgent] = useState(Agent);
-
-  // useEffect(() => {
-  //   async function getUserId() {
-  //     const storedUserId = await AsyncStorage.getItem("userId");
-  //     if (storedUserId) {
-  //       setAgent((prev) => {
-  //         return { ...prev, agentId: storedUserId };
-  //       });
-  //     }
-  //   }
-  //   getUserId();
-  // }, []);
+  const socket = useSocket();
+  const [agent, setAgent] = useState<Agent | null>(null);
+  const [userId, setUserId] = useState<string | null>(null)
 
   useEffect(() => {
-    // if (agent.agentId) {
-      // const socket = io(SOCKET_HOST);
+    async function getUserId() {
+      const storedUserId = await AsyncStorage.getItem("userId");
+      console.log(storedUserId)
+      if (storedUserId) {
+        setUserId(storedUserId)
+      }
+    }
+    getUserId();
+  }, []);
 
-      // socket.on("connect", () => {
-      //   console.log("Socket connected");
-      //   console.log(agent.agentId);
-      //   socket.emit("EAADB0027AD4AD504A1AA179270D6CED", {
-      //     data: { Identifier: agent.agentId },
-      //   })
-      // });
+  useEffect(() => {
+    if (socket){
+      console.log('socket')
+      console.log(agent)
+      if (userId) {
+        socket.on("connect", () => {
+          console.log("Socket connected");
+          socket.emit("EAADB0027AD4AD504A1AA179270D6CED", {
+            data: { Identifier: userId },
+          });
+        });
 
-      socket.on("0280777F37D4F4E7C478D21CEC701463", (data) => {
-        const agent = data.data.details.user
-        console.log(agent)
-        setAgent(prev => ({...prev, 
-          name: agent.Name,
-          email: agent.Mail,
-          phone: agent.Number,
-          profile: agent.Profile
-        }))
-      });
-    // }
-  }, [agent.agentId]);
+        socket.on("0280777F37D4F4E7C478D21CEC701463", (data) => {
+          const agent = data.data.details.user;
+          console.log(agent);
+          setAgent((prev) => {
+            if(prev != null){
+              return {
+                ...prev,
+                name: agent.Name,
+                email: agent.Mail,
+                phone: agent.Number,
+                profile: agent.Profile,
+              }
+            } else {
+              return null
+            }
+          });
+        });
+      }
+    }
+  }, [userId, socket]);
 
   return (
     <AgentContext.Provider value={agent}>{children}</AgentContext.Provider>

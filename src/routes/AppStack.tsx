@@ -3,15 +3,6 @@ import { TabsLayout } from "../../App";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { AppStackParamList } from "../navigation";
 import ClientDueAmount from "../screens/Home/dueAmount/ClientDueAmount";
-import {
-  initialDueAmountClients,
-  initialHistoryDueAmountClients,
-  initialHistoryKycClients,
-  initialHistoryPropertyClients,
-  initialKycClients,
-  initialOverdueClients,
-  initialPropertyClients,
-} from "../context/fakeData";
 import PreviousPayments from "../screens/Home/dueAmount/PreviousPayments";
 import UpdateToClient from "../screens/Home/dueAmount/UpdateToClient";
 import PropertyInformation from "../screens/Home/propertyClient/PropertyInformation";
@@ -38,72 +29,42 @@ export const AppStack = () => {
           <Stack.Screen
             name="ClientDueAmount"
             component={ClientDueAmount}
-            //developmentonly
-            initialParams={{ user: initialDueAmountClients[0] }}
           />
           <Stack.Screen
             name="PreviousPayments"
             component={PreviousPayments}
-            // developmentonly
-            initialParams={{ user: initialDueAmountClients[0] }}
           />
           <Stack.Screen
             name="UpdateToClient"
             component={UpdateToClient}
-            // developmentonly
-            initialParams={{ user: initialDueAmountClients[0] }}
           />
           <Stack.Screen
             name="PropertyInformation"
             component={PropertyInformation}
-            // developmentonly
-            initialParams={{ user: initialPropertyClients[0] }}
           />
           <Stack.Screen
             name="VerifiedDocuments"
             component={VerifiedDocuments}
-            // developmentonly
-            initialParams={{ user: initialKycClients.verifiedClients[0] }}
           />
           <Stack.Screen
             name="RespondedClientDetailsScreen"
             component={RespondedClientDetailsScreen}
-            // developmentonly
-            initialParams={{
-              user: initialOverdueClients.RespondedClients[0],
-            }}
           />
           <Stack.Screen
             name="UnrespondedClientDetailsScreen"
             component={UnrespondedClientDetailsScreen}
-            // developmentonly
-            initialParams={{
-              user: initialOverdueClients.UnrespondedClients[0],
-            }}
           />
           <Stack.Screen
             name="HistoryDueAmountClientDetails"
             component={HistoryDueAmountClientDetail}
-            // developmentonly
-            initialParams={{
-              user: initialHistoryDueAmountClients[0],
-            }}
           />
           <Stack.Screen
             name="HistoryPropertyClientDetails"
             component={HistoryPropertyClientDetail}
-            // developmentonly
-            initialParams={{
-              user: initialHistoryPropertyClients[0],
-            }}
           />
           <Stack.Screen
             name="HistoryKycClientDetails"
             component={HistoryKycClientDetail}
-            // developmentonly
-            initialParams={{
-              user: initialHistoryKycClients[0],
-            }}
           />
         </Stack.Navigator>
       </ClientProvider>
