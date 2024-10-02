@@ -7,8 +7,10 @@ const AgentContext = createContext<Agent | null>(null);
 
 export const AgentProvider = ({ children }: { children: React.ReactNode }) => {
   const socket = useSocket();
-  const [agent, setAgent] = useState<Agent | null>(null);
   const [userId, setUserId] = useState<string | null>(null)
+
+  const [agent, setAgent] = useState<Agent | null>(null);
+
 
   useEffect(() => {
     async function getUserId() {
@@ -23,8 +25,6 @@ export const AgentProvider = ({ children }: { children: React.ReactNode }) => {
 
   useEffect(() => {
     if (socket){
-      console.log('socket')
-      console.log(agent)
       if (userId) {
         socket.on("connect", () => {
           console.log("Socket connected");
@@ -33,23 +33,22 @@ export const AgentProvider = ({ children }: { children: React.ReactNode }) => {
           });
         });
 
+        // Agent details
         socket.on("0280777F37D4F4E7C478D21CEC701463", (data) => {
           const agent = data.data.details.user;
-          console.log(agent);
           setAgent((prev) => {
-            if(prev != null){
               return {
                 ...prev,
                 name: agent.Name,
                 email: agent.Mail,
                 phone: agent.Number,
                 profile: agent.Profile,
+                agentId: agent.Identifier
               }
-            } else {
-              return null
-            }
           });
         });
+
+      
       }
     }
   }, [userId, socket]);

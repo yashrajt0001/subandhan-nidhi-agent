@@ -4,12 +4,12 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import CustomHeader from "../../../components/headers/CustomHeader";
 import ClientDetails from "../../../components/clientDetails/DueAmountClientDetails";
 import { StackScreenProps } from "@react-navigation/stack";
-import { RootStackParamList } from "../../../navigation";
+import { AppStackParamList } from "../../../navigation";
 import { robotoMedium } from "../../../lib/fonts";
 import icons from "../../../lib/icons";
 
 type PreviousPaymentsProps = StackScreenProps<
-  RootStackParamList,
+  AppStackParamList,
   "PreviousPayments"
 >;
 
@@ -28,7 +28,6 @@ const PreviousPayments = ({ navigation, route }: PreviousPaymentsProps) => {
             <TouchableOpacity
               className="justify-between flex-row p-2 bg-blueLight w-full rounded-lg"
               key={index}
-              onPress={() => navigation.navigate("UpdateToClient", { user })}
               activeOpacity={0.5}
             >
               <View className="gap-1">

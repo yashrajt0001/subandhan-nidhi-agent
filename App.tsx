@@ -13,6 +13,9 @@ import Profile from "./src/screens/Profile";
 import Pending from "./src/screens/Pending";
 import { AuthProvider } from "./src/context/Auth";
 import { Router } from "./src/routes/Router";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+
+// AsyncStorage.clear()
 
 const App = () => {
   return (

@@ -6,6 +6,8 @@ import { robotoMedium, robotoRegular } from "../lib/fonts";
 import AgentContext from "../context/AgentContext";
 import SwitchableButton from "../components/ui/SwitchableButton";
 import { CustomButton } from "../components/ui/CustomButton";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { useAuth } from "../context/Auth";
 
 const Profile = () => {
   const agent = useContext(AgentContext);
@@ -13,7 +15,7 @@ const Profile = () => {
     "verifications" | "recoveries" | "amounts"
   >("verifications");
 
-  console.log(agent)
+  const {signOut} = useAuth()
 
   return (
     <SafeAreaView className="bg-white h-full px-4">
@@ -135,6 +137,7 @@ const Profile = () => {
         </View>
 
         <CustomButton
+        onPress={signOut}
           theme={"default"}
           title="Log Out"
           className="bg-[#014CA9] rounded-md mb-14"

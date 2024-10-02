@@ -2,6 +2,7 @@ import React, { createContext, useState, useContext, useEffect } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import axiosInstance from "../lib/axios.utils";
 import { HOST } from "../../env";
+import { createErrorMessage } from "../lib/utils";
 
 type AuthContextData = {
   accessToken?: string;
@@ -57,14 +58,14 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
       await AsyncStorage.setItem("accessToken", data.credentials.access);
       await AsyncStorage.setItem("userId", userId)
       setAccessToken(data.credentials.access);
-      console.log(data.credentials.access);
     } catch (error: any) {
-      console.log("error:", error.response.data)
+      console.log("error:", createErrorMessage(error))
     }
   };
 
   const signOut = async () => {
     setAccessToken(undefined);
+    await AsyncStorage.removeItem("accessToken");
     await AsyncStorage.removeItem("accessToken");
   };
 

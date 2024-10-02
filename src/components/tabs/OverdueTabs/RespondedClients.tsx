@@ -12,11 +12,11 @@ import icons from "../../../lib/icons";
 import RespondedClientCard from "../../Cards/OverdueCard/RespondedClientCard";
 
 interface RespondedClientsProps {
-  clients: OverdueRespondedClient[];
+  clients: OverdueLoanClient[];
 }
 
 const RespondedClients = ({
-  clients: respondedClients,
+  clients: overdueLoanClients,
 }: RespondedClientsProps) => {
   const [searchMode, setSearchMode] = useState(false);
   return (
@@ -45,10 +45,10 @@ const RespondedClients = ({
           </TouchableOpacity>
         )}
       </View>
-      {respondedClients ? (
+      {overdueLoanClients ? (
         <FlatList
           keyExtractor={(item, index) => index.toString()}
-          data={respondedClients}
+          data={overdueLoanClients}
           renderItem={({ item }) => <RespondedClientCard user={item} />}
           showsVerticalScrollIndicator={false}
           contentContainerStyle={{

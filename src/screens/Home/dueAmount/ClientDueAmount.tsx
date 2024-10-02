@@ -17,6 +17,7 @@ type ClientDueAmountProps = StackScreenProps<
 
 const ClientDueAmount = ({ navigation, route }: ClientDueAmountProps) => {
   const { user } = route.params;
+  console.log(user)
   return (
     <SafeAreaView className="bg-white h-full px-4">
       <CustomHeader name="Client Due Amount" />
@@ -50,6 +51,7 @@ const ClientDueAmount = ({ navigation, route }: ClientDueAmountProps) => {
             textColor="white"
             title="Update to Client"
             textClasses="text-base"
+            onPress={()=>{navigation.navigate("UpdateToClient", {user})}}
           />
         </View>
       </ScrollView>

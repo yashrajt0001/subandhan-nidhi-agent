@@ -8,10 +8,12 @@ import TabsLabel from "../components/TabsLabel";
 import ClientContext from "../context/ClientContext";
 import DueLoan from "../components/tabs/HomeTabs/DueLoan";
 import DueScheme from "../components/tabs/HomeTabs/DueScheme";
+import { Loading } from "../components/Loading";
 
 const Home = () => {
   const allClients = useContext(ClientContext);
   const [selectedHomeTabIndex, setselectedHomeTabIndex] = useState(0);
+  const clientContext = useContext(ClientContext);
   const tabsItem = [
     {
       name: "Due Loan",
@@ -54,15 +56,19 @@ const Home = () => {
         })}
       </View>
 
-      <SwipeableTabs
-        onSwipe={(x) => setselectedHomeTabIndex(x)}
-        selectedIndex={selectedHomeTabIndex}
-      >
-        {tabsItem.map((item, index) => {
-          // @ts-ignore
-          return <item.component key={index} clients={item.clients} />;
-        })}
-      </SwipeableTabs>
+      {!clientContext?.isAssignedUserLoading ? (
+        <SwipeableTabs
+          onSwipe={(x) => setselectedHomeTabIndex(x)}
+          selectedIndex={selectedHomeTabIndex}
+        >
+          {tabsItem.map((item, index) => {
+            // @ts-ignore
+            return <item.component key={index} clients={item.clients} />;
+          })}
+        </SwipeableTabs>
+      ) : (
+        <Loading />
+      )}
     </SafeAreaView>
   );
 };

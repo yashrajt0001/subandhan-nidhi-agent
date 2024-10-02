@@ -6,6 +6,7 @@ const ClientContext = createContext<ClientsType | null>(null);
 export const ClientProvider = ({ children }: { children: React.ReactNode }) => {
   const socket = useSocket();
 
+  const [assignedUsers, setAssignedUsers] = useState<any>(null);
   const [dueLoanClients, setDueLoanClients] = useState<DueLoanClients | null>(
     null
   );
@@ -14,7 +15,7 @@ export const ClientProvider = ({ children }: { children: React.ReactNode }) => {
   const [propertyClients, setPropertyClients] =
     useState<PropertyClients | null>(null);
   const [kycClients, setKycClients] = useState<KycClients | null>(null);
-  const [overdueClients, setoverdueClients] = useState<OverdueClients | null>(
+  const [overdueClients, setOverdueClients] = useState<OverdueClients | null>(
     null
   );
   const [historyDueAmountClients, setHistoryDueAmountClients] =
@@ -30,18 +31,38 @@ export const ClientProvider = ({ children }: { children: React.ReactNode }) => {
   const [pendingPropertyClients, setPendingPropertyClients] =
     useState<PendingPropertyClients | null>(null);
 
+  const [notifications, setNotifications] = useState<Notification[] | null>(
+    null
+  );
+
+  const [isDueLoanLoading, setIsDueLoanLoading] = useState(true);
+  const [isAssignedUserLoading, setIsAssignedUserLoading] = useState(true);
+
   useEffect(() => {
     if (socket) {
       // Assigned users
       socket.on("0280777F37D4F4JBBU78D21CEC701463", (data) => {
-        console.log("assigned user", data);
+        if (data.code == 200) {
+          setAssignedUsers(data.data.details.users);
+        } else {
+          // todo show error toast
+        }
+        setIsAssignedUserLoading(false);
       });
 
       // Active loans
       socket.on("B5EC69CF4C7428ND8CAGJB851E284EE7", (data) => {
-        console.log("active loans", data.data.details.loans);
-        setDueLoanClients(data.data.details.loans)
+        console.log(data);
+        if (data.code == 200) {
+          setDueLoanClients(data.data.details.loans);
+        } else {
+          // todo show toast msg
+        }
+        setIsDueLoanLoading(false);
       });
+
+      // Notifications
+      socket.on("B5EC69CF4C7328EE8CABF3851E284EE3", (data) => {});
 
       // Overdue loans
       // socket.on('B5EC69CF4C7428ND8CABF5851E284EE7', (data)=>{
@@ -83,6 +104,8 @@ export const ClientProvider = ({ children }: { children: React.ReactNode }) => {
   return (
     <ClientContext.Provider
       value={{
+        notifications,
+        assignedUsers,
         dueLoanClients,
         dueSchemeClients,
         propertyClients,
@@ -94,6 +117,8 @@ export const ClientProvider = ({ children }: { children: React.ReactNode }) => {
         pendingDueAmountClients,
         pendingKycClients,
         pendingPropertyClients,
+        isAssignedUserLoading,
+        isDueLoanLoading,
       }}
     >
       {children}

@@ -7,9 +7,9 @@ interface DueLoanProps {
 }
 
 const DueLoan = ({ clients: dueLoanClients }: DueLoanProps) => {
-  return (
-    <View className="mr-8">
-      {dueLoanClients ? (
+  if (dueLoanClients) {
+    if (dueLoanClients.length > 0) {
+      return (
         <FlatList
           keyExtractor={(item, index) => index.toString()}
           data={dueLoanClients}
@@ -21,11 +21,13 @@ const DueLoan = ({ clients: dueLoanClients }: DueLoanProps) => {
             gap: 10,
           }}
         />
-      ) : (
-        <View className="items-center justify-center m-10">
-          <Text className="text-slate-400">No clients</Text>
-        </View>
-      )}
+      );
+    }
+  }
+
+  return (
+    <View className="items-center justify-center pr-8 py-10">
+      <Text className="text-slate-400">No clients</Text>
     </View>
   );
 };

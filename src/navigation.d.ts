@@ -8,6 +8,7 @@ type AuthStackParamList = {
 
 type AppStackParamList = {
     MainMenu: NavigatorScreenParams<TabParamList>
+    Notification: undefined
     ClientDueAmount: {
         user: DueAmountClient
     }

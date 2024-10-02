@@ -4,6 +4,7 @@ import icons from "../lib/icons";
 import { robotoRegular } from "../lib/fonts";
 import { useNavigation } from "@react-navigation/native";
 import { HomeScreenNavigationProp } from "../navigation";
+import { getUser } from "../lib/utils";
 
 interface DueAmountCardProps {
   user: DueLoanClient;
@@ -11,6 +12,7 @@ interface DueAmountCardProps {
 
 const DueAmountCard = ({ user }: DueAmountCardProps) => {
   const navigation = useNavigation<HomeScreenNavigationProp>();
+  const userDetails = getUser(user.Identifier)
   return (
     <TouchableOpacity
       activeOpacity={0.9}
@@ -21,13 +23,13 @@ const DueAmountCard = ({ user }: DueAmountCardProps) => {
     >
       <View className="gap-2">
         <Text style={robotoRegular} className="text-black">
-          Customer ID :{user.Identifier}
+          Customer ID : {user.Identifier}
         </Text>
         <Text style={robotoRegular} className="text-black">
-          Name :
+          Name : {userDetails?.Name}
         </Text>
         <Text style={robotoRegular} className="text-black">
-          Phone No :
+          Phone No : {userDetails?.Number}
         </Text>
         <Text style={robotoRegular} className="text-black">
           Due Amount : {user.Amount - user.Completed * user.Emi}

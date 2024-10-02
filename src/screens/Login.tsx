@@ -10,15 +10,22 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import Logo from "../assets/images/Logo.png";
 import { Input } from "../components/ui/Input";
 import { CustomButton } from "../components/ui/CustomButton";
-import {robotoMedium} from '../lib/fonts'
+import { robotoMedium } from "../lib/fonts";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { useAuth } from "../context/Auth";
 
-const Login = ({navigation}: NativeStackScreenProps<any, any>) => {
-  const [userId, setUserId] = useState("91394774");
-  const [password, setPassword] = useState("XJZwNDyOVrWr8q5");
+const Login = ({ navigation }: NativeStackScreenProps<any, any>) => {
+  const [userId, setUserId] = useState("");
+  const [password, setPassword] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
-  const {signIn} = useAuth()
+  const { signIn } = useAuth();
+
+  const handleLogIn = async () => {
+    setIsLoading(true);
+    await signIn(userId, password);
+    setIsLoading(false);
+  };
 
   const handleDismissKeyboard = () => {
     Keyboard.dismiss();
@@ -50,7 +57,10 @@ const Login = ({navigation}: NativeStackScreenProps<any, any>) => {
               placeholder="Enter Your UserID"
               placeholderTextColor="#0166E4"
               value={userId}
-              onchangeText={(text)=> {setUserId(text); console.log(text)}}
+              onchangeText={(text) => {
+                setUserId(text);
+                console.log(text);
+              }}
             />
             <Input
               style={{ fontFamily: "Roboto", fontWeight: "500" }}
@@ -60,7 +70,8 @@ const Login = ({navigation}: NativeStackScreenProps<any, any>) => {
               placeholder="Enter Password"
               placeholderTextColor="#0166E4"
               value={password}
-              onchangeText={(text)=> setPassword(text)}
+              onchangeText={(text) => setPassword(text)}
+              secureTextEntry={true}
             />
           </View>
           <View>
@@ -70,12 +81,20 @@ const Login = ({navigation}: NativeStackScreenProps<any, any>) => {
               className="mt-4"
               theme="link"
               textStyle={{ fontFamily: "Inter-Medium", fontWeight: "400" }}
-              style={{alignSelf: 'flex-start'}}
+              style={{ alignSelf: "flex-start" }}
             />
           </View>
         </View>
         <View className="">
-          <CustomButton onPress={()=> signIn(userId, password)} title="Log in" theme='default' textColor='white' textClasses="text-[17px]" textStyle={robotoMedium}/>
+          <CustomButton
+            onPress={handleLogIn}
+            title="Log in"
+            className={`${isLoading ? "bg-red-300" : ""}`}
+            theme="default"
+            textColor="white"
+            textClasses="text-[17px]"
+            textStyle={robotoMedium}
+          />
         </View>
       </SafeAreaView>
     </TouchableWithoutFeedback>

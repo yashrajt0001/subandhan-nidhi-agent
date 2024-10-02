@@ -3,22 +3,41 @@ import React, { useState } from "react";
 import CustomHeader from "../../../components/headers/CustomHeader";
 import ClientDetails from "../../../components/clientDetails/DueAmountClientDetails";
 import { StackScreenProps } from "@react-navigation/stack";
-import { RootStackParamList } from "../../../navigation";
-import ToggleButton from "../../../components/ui/ToggleButton";
+import { AppStackParamList } from "../../../navigation";
 import { robotoMedium, robotoRegular } from "../../../lib/fonts";
 import { Input } from "../../../components/ui/Input";
-import { TouchableOpacity } from "react-native";
 import { CustomButton } from "../../../components/ui/CustomButton";
 
 type UpdateToClientProps = StackScreenProps<
-  RootStackParamList,
+  AppStackParamList,
   "UpdateToClient"
 >;
 
 const UpdateToClient = ({ navigation, route }: UpdateToClientProps) => {
-  const [paidStatus, setPaidStatus] = useState<"paid" | "unpaid">("paid");
+  // const [paidStatus, setPaidStatus] = useState<"paid" | "unpaid">("paid");
+  // const [paymentMode, setPaymentMode] = useState<"cash" | "online">("cash");
   const [paidAmount, setPaidAmount] = useState("");
-  const [paymentMode, setPaymentMode] = useState<"cash" | "online">("cash");
+  // const [document, setDocument] = useState<any>();
+
+  // const transformFileObject = (file: any) => ({
+  //   name: file.name,
+  //   size: file.size,
+  //   type: file.type,
+  //   uri: file.uri,
+  // });
+
+  // const pickDocument = async () => {
+  //   const permission = await check(PERMISSIONS.ANDROID.READ_EXTERNAL_STORAGE);
+  //   if (permission !== RESULTS.GRANTED) {
+  //     await request(PERMISSIONS.ANDROID.READ_EXTERNAL_STORAGE);
+  //   }
+
+  //   const result = await DocumentPicker.pick({
+  //     type: [DocumentPicker.types.allFiles],
+  //   });
+  //   const transformedFile = transformFileObject(result[0]);
+  //   setDocument(transformedFile);
+  // };
 
   const { user } = route.params;
   return (
@@ -27,7 +46,7 @@ const UpdateToClient = ({ navigation, route }: UpdateToClientProps) => {
       <ScrollView showsVerticalScrollIndicator={false}>
         <ClientDetails user={user} />
         <View className="mt-10">
-          <View className="gap-y-6 mb-2">
+          {/* <View className="gap-y-6 mb-2">
             <View className="flex-row w-full justify-between">
               <Text style={robotoRegular} className="text-black text-base">
                 Paid Client
@@ -80,17 +99,17 @@ const UpdateToClient = ({ navigation, route }: UpdateToClientProps) => {
                 switchWidthMultiplier={2.8}
               />
             </View>
-          </View>
-          {paidStatus === "paid" && (
-            <>
-              <Input
-                theme="outline"
-                className="text-base p-2"
-                value={paidAmount}
-                onchangeText={setPaidAmount}
-                placeholder="Enter Amount Paid"
-              />
-              <View className="mt-4 flex-row w-full justify-between">
+          </View> */}
+          {/* {paidStatus === "paid" && ( */}
+          {/* <> */}
+          <Input
+            theme="outline"
+            className="text-base p-2"
+            value={paidAmount}
+            onchangeText={setPaidAmount}
+            placeholder="Enter Amount Paid"
+          />
+          {/* <View className="mt-4 flex-row w-full justify-between">
                 <TouchableOpacity
                   activeOpacity={0.5}
                   onPress={() => setPaymentMode("cash")}
@@ -119,8 +138,8 @@ const UpdateToClient = ({ navigation, route }: UpdateToClientProps) => {
                     Through Online
                   </Text>
                 </TouchableOpacity>
-              </View>
-              {paymentMode === "online" && (
+              </View> */}
+          {/* {paymentMode === "online" && (
                 <View className="mt-4">
                   <Input
                     theme="outline"
@@ -130,27 +149,24 @@ const UpdateToClient = ({ navigation, route }: UpdateToClientProps) => {
                     placeholder="Enter Transaction Id"
                   />
                 </View>
-              )}
-              <View className="mt-6">
-                <Text
-                  style={robotoRegular}
-                  className="text-xs text-[#333333] mb-2"
-                >
-                  Upload a file below **mb
-                </Text>
-                <CustomButton
-                  theme={"outline"}
-                  title="Upload the Document"
-                  textColor={"red"}
-                  textStyle={robotoMedium}
-                />
-              </View>
-            </>
-          )}
+              )} */}
+          <View className="mt-6">
+            <Text style={robotoRegular} className="text-xs text-[#333333] mb-2">
+              Upload a file below **mb
+            </Text>
+            <CustomButton
+              theme={"outline"}
+              title="Upload the Document"
+              textColor={"red"}
+              textStyle={robotoMedium}
+            />
+          </View>
+          {/* </>
+          )} */}
           <CustomButton
             activeOpacity={0.5}
-            disabled={paidStatus === "paid" ? true : false}
-            className={`${paidStatus === "paid" ? "bg-redSecondary" : "bg-redPrimary"} my-8`}
+            // disabled={paidStatus === "paid" ? true : false}
+            className={`${true ? "bg-redSecondary" : "bg-redPrimary"} my-8`}
             theme={"default"}
             title="Submit to Admin"
           />

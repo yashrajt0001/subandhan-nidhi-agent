@@ -1,10 +1,10 @@
 type DueLoanClient = {
   Identifier: string;
   Type: string;
-  Penalty: boolean
-  Completed: number
-  Emi: number
-  Installment: date
+  Penalty: boolean;
+  Completed: number;
+  Emi: number;
+  Installment: date;
   Amount: number;
   Transactions: PreviousPayments;
 };
@@ -21,9 +21,8 @@ type DueSchemeClient = {
   dueDays: number;
   totalLateCharges: number;
   previousPayments: PreviousPayments;
-}
+};
 type DueSchemeClients = DueSchemeClient[];
-
 
 type HistoryDueAmountClient = {
   customerId: string;
@@ -90,7 +89,7 @@ type KycClients = {
 
 type HistoryKycClient = {
   name: string;
-  image: string
+  image: string;
   age: number;
   phone: string;
   email: string;
@@ -98,33 +97,33 @@ type HistoryKycClient = {
   status: boolean;
 };
 
-type HistoryKycClients = HistoryKycClient[]
+type HistoryKycClients = HistoryKycClient[];
 
 type PendingDueLoanClient = {
-  customerId: string
-  name: string
-  phone: string
-  loan: 'type'
-  totalAmount: number
-  paidAmount: number
-  dueAmount: number
-  dueDays: number
-  totalLateCharges: number
-  previousPayments: PreviousPayments
-}
+  customerId: string;
+  name: string;
+  phone: string;
+  loan: "type";
+  totalAmount: number;
+  paidAmount: number;
+  dueAmount: number;
+  dueDays: number;
+  totalLateCharges: number;
+  previousPayments: PreviousPayments;
+};
 
-type PendingDueAmountClients = PendingDueAmountClient[]
+type PendingDueAmountClients = PendingDueAmountClient[];
 
 type PendingPropertyClient = {
-  customerId: string
-  name: string
-  phone: string
-  propertyType: 'building'
-  propertyAddress: string
-  propertyValue: number
-}
+  customerId: string;
+  name: string;
+  phone: string;
+  propertyType: "building";
+  propertyAddress: string;
+  propertyValue: number;
+};
 
-type PendingPropertyClients = PendingPropertyClient[]
+type PendingPropertyClients = PendingPropertyClient[];
 
 type PreviousPayment = {
   amount: number;
@@ -135,30 +134,29 @@ type PreviousPayment = {
 type PreviousPayments = PreviousPayment[];
 
 type PendingKycVerifyClient = {
-  name: string
-  age: number
-  phone: string
-  email: string
-  address: string
-  dateOfRequest: date
-}
+  name: string;
+  age: number;
+  phone: string;
+  email: string;
+  address: string;
+  dateOfRequest: date;
+};
 
 type PendingKycVerifiedClient = {
-  name: string
-  age: number
-  phone: string
-  email: string
-  address: string
-  zoomMeetTime: date
-}
+  name: string;
+  age: number;
+  phone: string;
+  email: string;
+  address: string;
+  zoomMeetTime: date;
+};
 
 type PendingKycClients = {
-  verifiedClients: PendingKycVerifiedClient[]
-  verifyClients: PendingKycVerifyClient[]
-}
+  verifiedClients: PendingKycVerifiedClient[];
+  verifyClients: PendingKycVerifyClient[];
+};
 
-
-type OverdueRespondedClient = {
+type OverdueLoanClient = {
   customerId: string;
   name: string;
   phone: string;
@@ -174,7 +172,7 @@ type OverdueRespondedClient = {
   totalAmount: number;
 };
 
-type OverdueUnrespondedClient = {
+type OverdueSchemeClient = {
   customerId: string;
   name: string;
   phone: string;
@@ -184,17 +182,19 @@ type OverdueUnrespondedClient = {
   dueAmount: number;
   dueDays: number;
   paidAmount: number;
+  reason: string;
   rePayingDate: Date;
   addedInterest: number;
   totalAmount: number;
 };
 
 type OverdueClients = {
-  RespondedClients: OverdueRespondedClient[];
-  UnrespondedClients: OverdueUnrespondedClient[];
+  OverdueLoanClients: OverdueLoanClient[];
+  OverdueSchemeClients: OverdueSchemeClient[];
 };
 
 type ClientsType = {
+  assignedUsers: any;
   dueLoanClients: DueLoanClients | null;
   dueSchemeClients: DueSchemeClients | null;
   propertyClients: PropertyClients | null;
@@ -202,16 +202,24 @@ type ClientsType = {
   overdueClients: OverdueClients | null;
   historyDueAmountClients: HistoryDueAmountClients | null;
   historyPropertyClients: HistoryPropertyClients | null;
-  historyKycClients: HistoryKycClients | null
-  pendingDueAmountClients: PendingDueAmountClients | null
-  pendingKycClients: PendingKycClients | null
-  pendingPropertyClients: PendingPropertyClients | null
+  historyKycClients: HistoryKycClients | null;
+  pendingDueAmountClients: PendingDueAmountClients | null;
+  pendingKycClients: PendingKycClients | null;
+  pendingPropertyClients: PendingPropertyClients | null;
+  notifications: Notification[] | null;
+  isAssignedUserLoading: boolean
+  isDueLoanLoading: boolean
 };
 
 type Agent = {
-  agentId: string
-  name: string
-  email: string
-  phone: string 
-  profile: string
-}
+  agentId: string;
+  name: string;
+  email: string;
+  phone: string;
+  profile: string;
+};
+
+type Notification = {
+  Title: string;
+  Description: string;
+};

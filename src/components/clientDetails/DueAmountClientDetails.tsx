@@ -2,6 +2,7 @@ import { View, Text } from "react-native";
 import React from "react";
 import { robotoMedium, robotoRegular } from "../../lib/fonts";
 import moment from "moment";
+import { getUser } from "../../lib/utils";
 
 interface DueAmountClientDetailsProps {
   user: {
@@ -16,7 +17,8 @@ interface DueAmountClientDetailsProps {
 }
 
 const DueAmountClientDetails = ({ user }: DueAmountClientDetailsProps) => {
-  const todayDate = moment()
+  const todayDate = moment("10-10-2024");
+  const userDetail = getUser(user.Identifier);
   return (
     <View className="bg-blueLight mt-2 rounded-lg py-4 px-5 flex-row justify-between">
       <View className="gap-2">
@@ -50,13 +52,13 @@ const DueAmountClientDetails = ({ user }: DueAmountClientDetailsProps) => {
       </View>
       <View className="gap-2">
         <Text style={robotoMedium} className="text-black">
-          {user.Emi}
+          {user.Identifier}
         </Text>
         <Text style={robotoMedium} className="text-black">
-          name
+          {userDetail.Name}
         </Text>
         <Text style={robotoMedium} className="text-black">
-          999
+          {userDetail.Number}
         </Text>
         <Text style={robotoMedium} className="text-black">
           {user.Type}
@@ -71,7 +73,7 @@ const DueAmountClientDetails = ({ user }: DueAmountClientDetailsProps) => {
           {user.Emi * user.Completed}
         </Text>
         <Text style={robotoMedium} className="text-black">
-        {todayDate.diff(moment(user.Installment), 'days')} days
+         {moment(user.Installment, 'D-MM-YYYY').diff(todayDate, 'days')} days
         </Text>
         <Text style={robotoMedium} className="text-black">
           {user.Penalty ? 215 : 0}

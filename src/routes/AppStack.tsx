@@ -14,6 +14,7 @@ import HistoryPropertyClientDetail from "../screens/History/PropertyVerification
 import HistoryKycClientDetail from "../screens/History/KycProcess/HistoryKycClientDetail";
 import { AgentProvider } from "../context/AgentContext";
 import { ClientProvider } from "../context/ClientContext";
+import Notification from "../screens/Notification";
 
 const Stack = createNativeStackNavigator<AppStackParamList>();
 
@@ -65,6 +66,10 @@ export const AppStack = () => {
           <Stack.Screen
             name="HistoryKycClientDetails"
             component={HistoryKycClientDetail}
+          />
+          <Stack.Screen
+            name="Notification"
+            component={Notification}
           />
         </Stack.Navigator>
       </ClientProvider>

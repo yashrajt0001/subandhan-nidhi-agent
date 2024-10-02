@@ -13,14 +13,14 @@ const Overdue = () => {
 
   const tabsItem = [
     {
-      name: "Responded Client",
+      name: "Overdue Loan",
       component: RespondedClient,
-      clients: allClients?.overdueClients.RespondedClients,
+      clients: allClients?.overdueClients?.OverdueLoanClients,
     },
     {
-      name: "Un-Responded Client",
+      name: "Overdue Scheme",
       component: UnrespondedClients,
-      clients: allClients?.overdueClients.UnrespondedClients,
+      clients: allClients?.overdueClients?.OverdueSchemeClients,
     },
   ];
   return (

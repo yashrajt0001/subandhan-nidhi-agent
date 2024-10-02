@@ -1,9 +1,13 @@
 import axios from "axios";
-import { type ClassValue, clsx } from "clsx"
-import { twMerge } from "tailwind-merge"
+import { type ClassValue, clsx } from "clsx";
+import { useContext } from "react";
+import { twMerge } from "tailwind-merge";
+import ClientContext from "../context/ClientContext";
+
+const clients = useContext(ClientContext);
 
 export function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs))
+  return twMerge(clsx(inputs));
 }
 
 export const createErrorMessage = (error: any) => {
@@ -31,4 +35,14 @@ export const createErrorMessage = (error: any) => {
   }
 
   return "Generic error message";
+};
+
+export const getUser = (identifier: string) => {
+  if (clients?.assignedUsers) {
+    console.log(clients.assignedUsers)
+    const filteredUser = clients?.assignedUsers.filter(
+      (user: any) => user.Identifier === identifier
+    );
+    return filteredUser[0]
+  }
 };
